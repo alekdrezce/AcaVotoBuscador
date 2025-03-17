@@ -1,263 +1,59 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AcáVoto</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Montserrat+SemiBold:wght@600&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: #004f9e;
-            font-family: 'Montserrat', sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        #logo {
-            width: 200px; /* Logo más grande */
-            margin-top: 50px;
-        }
-        .header {
-            color: #ffffff;
-            text-align: center;
-            margin-top: 50px;
-        }
-        .titulo {
-            font-size: 96px; /* Título más grande */
-        }
-        .titulo span {
-            color: #ffc300; /* Tres primeras letras en amarillo */
-        }
-        .instructivo {
-            font-size: 24px; /* Reducir tamaño del instructivo */
-            color: #ffffff;
-        }
-        .input-container {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-            flex-wrap: wrap; /* Para que los elementos se acomoden mejor en pantallas pequeñas */
-        }
-        .input-container input {
-            text-transform: uppercase;
-            width: 250px;
-            padding: 15px;
-            font-size: 18px;
-            border: none;
-            margin-right: 10px;
-            border-radius: 5px; /* Añadido borde redondeado */
-            margin-bottom: 10px;
-        }
-        .input-container button {
-            background-color: #e20613;
-            color: #ffffff;
-            padding: 15px 30px;
-            border: none;
-            font-size: 18px;
-            cursor: pointer;
-            border-radius: 5px; /* Borde redondeado */
-            width: 250px; /* Mismo ancho que el campo de entrada */
-        }
-        .resultado {
-            color: #ffffff;
-            font-size: 24px; /* Reducir tamaño del texto de resultado */
-            text-align: center;
-            margin-top: 30px;
-            padding: 0 15px; /* Padding extra para espacio en pantallas pequeñas */
-        }
-        .resultado span {
-            color: #ffc300;
-        }
-        .help-text {
-            font-size: 16px;
-            font-weight: 600;
-            color: #ffc300;
-            text-decoration: underline;
-            cursor: pointer;
-            text-align: center;
-            margin-top: 20px;
-        }
-        .help-message {
-            font-size: 16px;
-            color: #ffffff;
-            display: none;
-            text-align: center;
-            margin-top: 20px;
-        }
-        #helpImage {
-            max-height: 33%; /* Ajustar a un 33% del tamaño original */
-            margin-top: 10px;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        @media (max-width: 768px) {
-            .titulo {
-                font-size: 72px; /* Título más pequeño en pantallas pequeñas */
-            }
-            .input-container {
-                flex-direction: column;
-                align-items: center;
-            }
-            .input-container input {
-                width: 90%; /* Hacer que el campo de entrada ocupe más espacio */
-                margin-bottom: 15px;
-            }
-            .input-container button {
-                width: 90%; /* Hacer que el botón ocupe más espacio */
-            }
-            #logo {
-                width: 150px; /* Reducir tamaño del logo en móvil */
-            }
-        }
-    </style>
-</head>
-<body>
+const municipiosDict = {
+    // MONTEVIDEO
+    "BSA":"Municipio A","BSB":"Municipio A","BTA":"Municipio A","BTB":"Municipio A","BTC":"Municipio A","BTD":"Municipio A","BUA":"Municipio A","BUB":"Municipio A","BVA":"Municipio A","BVB":"Municipio A","BVC":"Municipio A","BXA":"Municipio A","BXB":"Municipio A","BXC":"Municipio A",
+    "AAA":"Municipio B","AAB":"Municipio B","ABA":"Municipio B","ABB":"Municipio B","ACA":"Municipio B","ACB":"Municipio B","ADA":"Municipio B","ADB":"Municipio B","AEA":"Municipio B","AEB":"Municipio B","AFA":"Municipio B","AFB":"Municipio B","AGA":"Municipio B","AGB":"Municipio B","AHA":"Municipio B","AHB":"Municipio B","AIA":"Municipio B","AIB":"Municipio B","AJA":"Municipio B","AJB":"Municipio B","AKA":"Municipio B","AKB":"Municipio B","ALA":"Municipio B","ALB":"Municipio B","AMA":"Municipio B","AMB":"Municipio B","ANA":"Municipio B","ANB":"Municipio B","AOA":"Municipio B","AOB":"Municipio B","APA":"Municipio B","APB":"Municipio B","AQA":"Municipio B","AQB":"Municipio B","ARA":"Municipio B","ARB":"Municipio B","ASA":"Municipio B","ASB":"Municipio B","AVB":"Municipio B","ATA":"Municipio B","AVA":"Municipio B","BEA":"Municipio B","BEB":"Municipio B","BFA":"Municipio B","BFB":"Municipio B","BJB":"Municipio B","BKB":"Municipio B",
+    // Agrega aquí resto de Montevideo ya incluido anteriormente
+};
 
-    <div class="header">
-        <h1 class="titulo"><span>Acá</span>Voto</h1>
-        <p class="instructivo">Ingresá tu serie de credencial cívica de Montevideo para identificar tu municipio y conocer sus candidaturas</p>
-    </div>
+const otrosDeptosDict = {
+    "CDA":{"municipio":"B","departamento":"Canelones","nombreMunicipio":"Las Piedras"},
+    "CMF":{"municipio":"A","departamento":"Canelones","nombreMunicipio":"Ciudad de la Costa"},
+    "DAA":{"municipio":"A","departamento":"Maldonado","nombreMunicipio":"Maldonado"},
+    "DBA":{"municipio":"B","departamento":"Maldonado","nombreMunicipio":"San Carlos"},
+    "DCB":{"municipio":"C","departamento":"Maldonado","nombreMunicipio":"Piriápolis"},
+    "DAB":{"municipio":"CH","departamento":"Maldonado","nombreMunicipio":"Punta del Este"},
+    "EFB":{"municipio":"A","departamento":"Rocha","nombreMunicipio":"Chuy"},
+    "EDC":{"municipio":"B","departamento":"Rocha","nombreMunicipio":"Castillos"},
+    "EEA":{"municipio":"C","departamento":"Rocha","nombreMunicipio":"Lascano"},
+    "ECG":{"municipio":"CH","departamento":"Rocha","nombreMunicipio":"La Paloma"},
+    "FBA":{"municipio":"A","departamento":"Treinta y Tres","nombreMunicipio":"Vergara"},
+    "FDA":{"municipio":"B","departamento":"Treinta y Tres","nombreMunicipio":"Santa Clara de Olimar"},
+    "FDB":{"municipio":"C","departamento":"Treinta y Tres","nombreMunicipio":"Cerro Chato"},
+    "FBC":{"municipio":"CH","departamento":"Treinta y Tres","nombreMunicipio":"General Enrique Martínez"},
+    "PBD":{"municipio":"A","departamento":"Flores","nombreMunicipio":"Ismael Cortinas"},
+    // Incluye aquí todas las demás series de los departamentos restantes
+};
 
-    <div class="input-container">
-        <input type="text" id="serieInput" placeholder="Introduce tu serie" onkeydown="if(event.key === 'Enter'){buscarMunicipio()}"/>
-        <button onclick="buscarMunicipio()">Buscar</button>
-    </div>
+function buscarMunicipio() {
+    const serie = document.getElementById("serieInput").value.toUpperCase();
+    let resultadoHTML = "";
 
-    <div id="resultado" class="resultado"></div>
+    if(municipiosDict[serie]){
+        const municipio = municipiosDict[serie];
+        let candidatos = "";
+        if (municipio === "Municipio A") candidatos = "Álvaro Pereyra, Juan C. Planchot";
+        else if (municipio === "Municipio B") candidatos = "Florencia Chipollini, Patricia Soria, Chabela Zarrillo";
+        else if (municipio === "Municipio C") candidatos = "Jorge Cabrera, Gabriela López, Damián Salvetto";
+        else if (municipio === "Municipio CH") candidatos = "Mónica Caffa";
+        else if (municipio === "Municipio D") candidatos = "José Machado, Gabriel Velazco";
+        else if (municipio === "Municipio E") candidatos = "Víctor Fomichov, Pilar Olascoaga, Pedro Pastorin";
+        else if (municipio === "Municipio F") candidatos = "Francisco Amorena, Matilde Palermo, Jorge Sartori";
+        else if (municipio === "Municipio G") candidatos = "Leticia de Torres";
 
-    <div class="help-text" onclick="toggleHelp()">¿Cómo encontrar mi serie?</div>
+        resultadoHTML = `Votás en el <span style="color:#ffc300">${municipio}</span><br>
+        Las candidaturas del Frente Amplio en tu municipio son las siguientes:<br>
+        - ${candidatos.split(", ").join("<br>- ")}`;
 
-    <div class="help-message" id="helpMessage">
-        <p>Para encontrar tu serie, mirá en tu Credencial Cívica el código de tres letras, como muestra en la imagen:</p>
-        <img src="ejemplo.png" id="helpImage" alt="Ejemplo de serie en la credencial cívica">
-    </div>
+    } else if(otrosDeptosDict[serie]) {
+        const info = otrosDeptosDict[serie];
+        resultadoHTML = `La serie corresponde al Municipio <span style="color:#ffc300">${info.municipio}</span> del departamento de <span style="color:#ffc300">${info.departamento}</span>, correspondiente a <span style="color:#ffc300">${info.nombreMunicipio}</span>`;
+    } else {
+        resultadoHTML = "Esta serie no pertenece al departamento de Montevideo";
+    }
 
-    <div class="text-center">
-        <img src="acavotologo.png" alt="AcáVoto Logo" id="logo">
-    </div>
+    document.getElementById("resultado").innerHTML = resultadoHTML;
+}
 
-    <script>
-        const municipiosDict = {
-            // Series de Montevideo
-            "BSA": "Municipio A", "BSB": "Municipio A", "BTA": "Municipio A", "BTB": "Municipio A", "BTC": "Municipio A", "BTD": "Municipio A", "BUA": "Municipio A", "BUB": "Municipio A", "BVA": "Municipio A", "BVB": "Municipio A", "BVC": "Municipio A", "BXA": "Municipio A", "BXB": "Municipio A", "BXC": "Municipio A",
-            "AAA": "Municipio B", "AAB": "Municipio B", "ABA": "Municipio B", "ABB": "Municipio B", "ACA": "Municipio B", "ACB": "Municipio B", "ADA": "Municipio B", "ADB": "Municipio B", "AEA": "Municipio B", "AEB": "Municipio B", "AFA": "Municipio B", "AFB": "Municipio B", "AGA": "Municipio B", "AGB": "Municipio B", "AHA": "Municipio B", "AHB": "Municipio B", "AIA": "Municipio B", "AIB": "Municipio B", "AJA": "Municipio B", "AJB": "Municipio B", "AKA": "Municipio B", "AKB": "Municipio B", "ALA": "Municipio B", "ALB": "Municipio B", "AMA": "Municipio B", "AMB": "Municipio B", "ANA": "Municipio B", "ANB": "Municipio B", "AOA": "Municipio B", "AOB": "Municipio B", "APA": "Municipio B", "APB": "Municipio B", "AQA": "Municipio B", "AQB": "Municipio B", "ARA": "Municipio B", "ARB": "Municipio B", "ASA": "Municipio B", "ASB": "Municipio B", "AVB": "Municipio B", "ATA": "Municipio B", "AVA": "Municipio B", "BEA": "Municipio B", "BEB": "Municipio B", "BFA": "Municipio B", "BFB": "Municipio B", "BJB": "Municipio B", "BKB": "Municipio B",
-            "BGA": "Municipio C", "BGB": "Municipio C", "BHA": "Municipio C", "BHB": "Municipio C", "BIA": "Municipio C", "BIB": "Municipio C", "BJA": "Municipio C", "BKA": "Municipio C", "BLA": "Municipio C", "BLB": "Municipio C", "BMA": "Municipio C", "BMB": "Municipio C", "BNA": "Municipio C", "BPA": "Municipio C", "BPB": "Municipio C", "BQA": "Municipio C", "BQB": "Municipio C",
-            "ATB": "Municipio CH", "AUA": "Municipio CH", "AUB": "Municipio CH", "AXA": "Municipio CH", "AXB": "Municipio CH", "AZA": "Municipio CH", "AZB": "Municipio CH", "BAA": "Municipio CH", "BAB": "Municipio CH",
-            "BBA": "Municipio D", "BBB": "Municipio D", "BBC": "Municipio D", "BBD": "Municipio D", "BDD": "Municipio D", "BNB": "Municipio D", "BNC": "Municipio D", "BOA": "Municipio D", "BOB": "Municipio D",
-            "BCA": "Municipio E", "BCB": "Municipio E", "BCC": "Municipio E", "BCD": "Municipio E", "BCE": "Municipio E", "BCF": "Municipio E", "BCG": "Municipio E",
-            "BDA": "Municipio F", "BDB": "Municipio F", "BDC": "Municipio F", "BDE": "Municipio F", "BDF": "Municipio F",
-            "BRA": "Municipio G", "BRB": "Municipio G", "BRC": "Municipio G", "BZA": "Municipio G", "BZB": "Municipio G", "BZC": "Municipio G"
-        };
-
-        // Series de otros departamentos
-        const otrosDepartamentosDict = {
-            // Canelones
-            "CMF": { municipio: "Ciudad de la Costa", departamento: "Canelones", municipio_letra: "A" },
-            "CMI": { municipio: "Ciudad de la Costa", departamento: "Canelones", municipio_letra: "A" },
-            "CMJ": { municipio: "Ciudad de la Costa", departamento: "Canelones", municipio_letra: "A" },
-            "CDA": { municipio: "Las Piedras", departamento: "Canelones", municipio_letra: "B" },
-            "CDD": { municipio: "Las Piedras", departamento: "Canelones", municipio_letra: "B" },
-            "CDE": { municipio: "Las Piedras", departamento: "Canelones", municipio_letra: "B" },
-            "CMA": { municipio: "Pando", departamento: "Canelones", municipio_letra: "C" },
-            "CEA": { municipio: "La Paz", departamento: "Canelones", municipio_letra: "CH" },
-            "CAA": { municipio: "Canelones", departamento: "Canelones", municipio_letra: "D" },
-            "CBA": { municipio: "Santa Lucía", departamento: "Canelones", municipio_letra: "E" },
-            "CBB": { municipio: "Santa Lucía", departamento: "Canelones", municipio_letra: "E" },
-            "CBC": { municipio: "Santa Lucía", departamento: "Canelones", municipio_letra: "E" },
-            "CDB": { municipio: "Progreso", departamento: "Canelones", municipio_letra: "F" },
-            "CMD": { municipio: "Paso Carrasco", departamento: "Canelones", municipio_letra: "G" },
-            "CME": { municipio: "Barros Blancos", departamento: "Canelones", municipio_letra: "H" },
-            "CMK": { municipio: "Colonia Nicolich", departamento: "Canelones", municipio_letra: "I" },
-            "CIA": { municipio: "San Ramón", departamento: "Canelones", municipio_letra: "J" },
-            "CMG": { municipio: "Salinas", departamento: "Canelones", municipio_letra: "K" },
-            "CQA": { municipio: "Suárez", departamento: "Canelones", municipio_letra: "L" },
-            "CMH": { municipio: "Parque del Plata", departamento: "Canelones", municipio_letra: "LL" },
-            "CFA": { municipio: "Sauce", departamento: "Canelones", municipio_letra: "M" },
-            "CJA": { municipio: "Tala", departamento: "Canelones", municipio_letra: "N" },
-            "CJB": { municipio: "Tala", departamento: "Canelones", municipio_letra: "N" },
-            "CMC": { municipio: "Atlántida", departamento: "Canelones", municipio_letra: "Ñ" },
-            "CQB": { municipio: "Toledo", departamento: "Canelones", municipio_letra: "O" },
-            "CMB": { municipio: "Empalme Olmos", departamento: "Canelones", municipio_letra: "P" },
-            "CHA": { municipio: "San Jacinto", departamento: "Canelones", municipio_letra: "Q" },
-            "CGA": { municipio: "Santa Rosa", departamento: "Canelones", municipio_letra: "R" },
-            "CLB": { municipio: "La Floresta", departamento: "Canelones", municipio_letra: "S" },
-            "CLC": { municipio: "La Floresta", departamento: "Canelones", municipio_letra: "S" },
-            "CKA": { municipio: "Migues", departamento: "Canelones", municipio_letra: "T" },
-            "CCA": { municipio: "Los Cerrillos", departamento: "Canelones", municipio_letra: "U" },
-            "CPA": { municipio: "San Bautista", departamento: "Canelones", municipio_letra: "V" },
-            "CPB": { municipio: "San Bautista", departamento: "Canelones", municipio_letra: "V" },
-            "CLA": { municipio: "Soca", departamento: "Canelones", municipio_letra: "W" },
-            "CLD": { municipio: "Soca", departamento: "Canelones", municipio_letra: "W" },
-            "CLE": { municipio: "Soca", departamento: "Canelones", municipio_letra: "W" },
-            "CKB": { municipio: "Montes", departamento: "Canelones", municipio_letra: "X" },
-            "COA": { municipio: "San Antonio", departamento: "Canelones", municipio_letra: "Y" },
-            "CCB": { municipio: "Aguas Corrientes", departamento: "Canelones", municipio_letra: "Z" },
-            "CDC": { municipio: "18 de Mayo", departamento: "Canelones", municipio_letra: "AB" },
-            "CQC": { municipio: "Del Andaluz", departamento: "Canelones", municipio_letra: "AC" },
-            "CNA": { municipio: "Juanicó", departamento: "Canelones", municipio_letra: "AD" },
-
-            // Maldonado
-            "DAA": { municipio: "Maldonado", departamento: "Maldonado", municipio_letra: "A" },
-            "DAC": { municipio: "Maldonado", departamento: "Maldonado", municipio_letra: "A" },
-            "DAE": { municipio: "Maldonado", departamento: "Maldonado", municipio_letra: "A" },
-            "DAF": { municipio: "Maldonado", departamento: "Maldonado", municipio_letra: "A" },
-            "DAG": { municipio: "Maldonado", departamento: "Maldonado", municipio_letra: "A" },
-            "DAH": { municipio: "Maldonado", departamento: "Maldonado", municipio_letra: "A" },
-            "DAI": { municipio: "Maldonado", departamento: "Maldonado", municipio_letra: "A" },
-            "DAJ": { municipio: "Maldonado", departamento: "Maldonado", municipio_letra: "A" },
-            "DAD": { municipio: "Maldonado", departamento: "Maldonado", municipio_letra: "A" },
-            "DBA": { municipio: "San Carlos", departamento: "Maldonado", municipio_letra: "B" },
-            "DBB": { municipio: "San Carlos", departamento: "Maldonado", municipio_letra: "B" },
-            "DBC": { municipio: "San Carlos", departamento: "Maldonado", municipio_letra: "B" },
-            "DBD": { municipio: "San Carlos", departamento: "Maldonado", municipio_letra: "B" },
-            "DBE": { municipio: "San Carlos", departamento: "Maldonado", municipio_letra: "B" },
-            "DBF": { municipio: "San Carlos", departamento: "Maldonado", municipio_letra: "B" },
-            "DBG": { municipio: "San Carlos", departamento: "Maldonado", municipio_letra: "B" },
-            "DDA": { municipio: "San Carlos", departamento: "Maldonado", municipio_letra: "B" },
-            "DDB": { municipio: "San Carlos", departamento: "Maldonado", municipio_letra: "B" },
-            "DDC": { municipio: "San Carlos", departamento: "Maldonado", municipio_letra: "B" },
-            "DED": { municipio: "San Carlos", departamento: "Maldonado", municipio_letra: "B" },
-            "DEE": { municipio: "San Carlos", departamento: "Maldonado", municipio_letra: "B" },
-            "DEF": { municipio: "San Carlos", departamento: "Maldonado", municipio_letra: "B" },
-            "DEH": { municipio: "San Carlos", departamento: "Maldonado", municipio_letra: "B" },
-            "DCB": { municipio: "Piriápolis", departamento: "Maldonado", municipio_letra: "C" },
-            "DCG": { municipio: "Piriápolis", departamento: "Maldonado", municipio_letra: "C" },
-            "DAB": { municipio: "Punta del Este", departamento: "Maldonado", municipio_letra: "CH" },
-            "DAK": { municipio: "Punta del Este", departamento: "Maldonado", municipio_letra: "CH" },
-            "DCA": { municipio: "Pan de Azúcar", departamento: "Maldonado", municipio_letra: "D" },
-            "DCC": { municipio: "Pan de Azúcar", departamento: "Maldonado", municipio_letra: "D" },
-            "DDD": { municipio: "Aiguá", departamento: "Maldonado", municipio_letra: "E" },
-            "DFA": { municipio: "Aiguá", departamento: "Maldonado", municipio_letra: "E" },
-            "DFB": { municipio: "Aiguá", departamento: "Maldonado", municipio_letra: "E" },
-            "DCD": { municipio: "Solís Grande", departamento: "Maldonado", municipio_letra: "F" },
-            "DCE": { municipio: "Solís Grande", departamento: "Maldonado", municipio_letra: "F" },
-            "DCF": { municipio: "Solís Grande", departamento: "Maldonado", municipio_letra: "F" },
-            "DEA": { municipio: "Garzón", departamento: "Maldonado", municipio_letra: "G" },
-            "DEC": { municipio: "Garzón", departamento: "Maldonado", municipio_letra: "G" },
-            "DEB": { municipio: "Garzón", departamento: "Maldonado", municipio_letra: "G" },
-            "DEG": { municipio: "Garzón", departamento: "Maldonado", municipio_letra: "G" }
-        };
-
-        function buscarMunicipio() {
-            const serie = document.getElementById("serieInput").value.toUpperCase();
-            let municipio = municipiosDict[serie] || otrosDepartamentosDict[serie];
-
-            if (municipio) {
-                if (municipio.municipio) {
-                    document.getElementById("resultado").innerHTML = 
-                        `La credencial ingresada corresponde al Municipio ${municipio.municipio_letra} del Departamento ${municipio.departamento}, correspondiente a ${municipio.municipio}`;
-                }
-            } else {
-                document.getElementById("resultado").innerHTML = "Esta serie no pertenece a un municipio registrado.";
-            }
-        }
-
-        function toggleHelp() {
-            const helpMessage = document.getElementById("helpMessage");
-            helpMessage.style.display = helpMessage.style.display === "block" ? "none" : "block";
-        }
-    </script>
-
-</body>
-</html>
+document.getElementById("serieInput").addEventListener("keydown", function(event) {
+    if(event.key === 'Enter') buscarMunicipio();
+});

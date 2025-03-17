@@ -392,27 +392,27 @@
     
     if (municipiosDict[serie]) {
         // 🔹 **Si la serie pertenece a Montevideo**
-        const info = municipiosDict[serie]; // Acceder correctamente al objeto {municipio, candidatos}
+        const info = municipiosDict[serie];
 
-        document.getElementById("resultado").innerHTML = 
+        document.getElementById("resultado").innerHTML = `
             Votás en el <span style="color:#ffc300">${info.municipio}</span><br>
             Las candidaturas del Frente Amplio en tu municipio son las siguientes:<br>
             - ${info.candidatos.split(", ").join("<br>- ")}
-        ;
+        `;
     
     } else if (otrosDepartamentosDict[serie]) {
         // 🔹 **Si la serie pertenece a otro departamento**
         const info = otrosDepartamentosDict[serie];
 
-        document.getElementById("resultado").innerHTML = 
+        document.getElementById("resultado").innerHTML = `
             La serie ingresada corresponde al municipio <span style="color:#ffc300">${info.municipio_letra}</span> 
             del departamento <span style="color:#ffc300">${info.departamento}</span>, 
             correspondiente a <span style="color:#ffc300">${info.municipio}</span>.
-        ;
+        `;
     
     } else {
         // 🔹 **Si la serie no está en la base de datos**
-        document.getElementById("resultado").innerHTML = "Esta serie no pertenece al departamento de Montevideo ni a los municipios registrados.";
+        document.getElementById("resultado").innerHTML = "Esta serie no pertenece al departamento de Montevideo ni a los departamentos registrados.";
     }
 }
 

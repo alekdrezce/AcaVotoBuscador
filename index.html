@@ -119,7 +119,7 @@
 
     <div class="header">
         <h1 class="titulo"><span>Acá</span>Voto</h1>
-        <p class="instructivo">Ingresá tu serie de credencial cívica para identificar tu municipio y conocer sus candidaturas</p>
+        <p class="instructivo">Ingresá tu serie de credencial cívica de Montevideo para identificar tu municipio y conocer sus candidaturas</p>
     </div>
 
     <div class="input-container">
@@ -392,23 +392,23 @@
     
     if (municipiosDict[serie]) {
         // 🔹 **Si la serie pertenece a Montevideo**
-        const info = municipiosDict[serie];
+        const info = municipiosDict[serie]; // Acceder correctamente al objeto {municipio, candidatos}
 
-        document.getElementById("resultado").innerHTML = `
+        document.getElementById("resultado").innerHTML = 
             Votás en el <span style="color:#ffc300">${info.municipio}</span><br>
             Las candidaturas del Frente Amplio en tu municipio son las siguientes:<br>
             - ${info.candidatos.split(", ").join("<br>- ")}
-        `;
+        ;
     
     } else if (otrosDepartamentosDict[serie]) {
         // 🔹 **Si la serie pertenece a otro departamento**
         const info = otrosDepartamentosDict[serie];
 
-        document.getElementById("resultado").innerHTML = `
+        document.getElementById("resultado").innerHTML = 
             La serie ingresada corresponde al municipio <span style="color:#ffc300">${info.municipio_letra}</span> 
             del departamento <span style="color:#ffc300">${info.departamento}</span>, 
             correspondiente a <span style="color:#ffc300">${info.municipio}</span>.
-        `;
+        ;
     
     } else {
         // 🔹 **Si la serie no está en la base de datos**

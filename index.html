@@ -144,49 +144,48 @@
         // Series de Montevideo
         const municipiosDict = {
     // Municipio A
-    "BSA": "Municipio A", "BTA": "Municipio A", "BTB": "Municipio A", "BTC": "Municipio A", "BTD": "Municipio A",
-    "BUA": "Municipio A", "BUB": "Municipio A", "BVA": "Municipio A", "BVB": "Municipio A", "BVC": "Municipio A",
-    "BXA": "Municipio A", "BXB": "Municipio A", "BXC": "Municipio A",
-    
-    // Municipio B
-    "AAA": "Municipio B", "ACA": "Municipio B", "AKA": "Municipio B", "AMA": "Municipio B", "APA": "Municipio B",
-    "ARA": "Municipio B", "ASA": "Municipio B", "ATA": "Municipio B", "AVA": "Municipio B", "BEA": "Municipio B",
-    "BFA": "Municipio B", "BJB": "Municipio B", "BKB": "Municipio B",
-    
-    // Municipio C
-    "BGA": "Municipio C", "BJA": "Municipio C", "BKA": "Municipio C", "BLA": "Municipio C", "BLB": "Municipio C",
-    "BMA": "Municipio C", "BMB": "Municipio C", "BNA": "Municipio C", "BPA": "Municipio C", "BPB": "Municipio C",
-    "BQA": "Municipio C", "BQB": "Municipio C",
-    
-    // Municipio CH
-    "ATB": "Municipio CH", "AUA": "Municipio CH", "AUB": "Municipio CH", "AXA": "Municipio CH", "AXB": "Municipio CH",
-    "AZA": "Municipio CH", "AZB": "Municipio CH", "BAA": "Municipio CH", "BAB": "Municipio CH",
-    
-    // Municipio D
-    "BBA": "Municipio D", "BBB": "Municipio D", "BBC": "Municipio D", "BDD": "Municipio D", "BNC": "Municipio D",
-    "BOA": "Municipio D", "BOB": "Municipio D",
-    
-    // Municipio E
-    "BCA": "Municipio E", "BCB": "Municipio E", "BCC": "Municipio E", "BCD": "Municipio E", "BCE": "Municipio E",
-    "BCF": "Municipio E", "BCG": "Municipio E",
-    
-    // Municipio F
-    "BDA": "Municipio F", "BDB": "Municipio F", "BDC": "Municipio F", "BDE": "Municipio F", "BDF": "Municipio F",
-    
-    // Municipio G
-    "BRA": "Municipio G", "BRB": "Municipio G", "BRC": "Municipio G", "BZA": "Municipio G", "BZB": "Municipio G",
-    "BZC": "Municipio G"
-};
+    "BSA": { municipio: "Municipio A", candidatos: "Álvaro Pereyra, Juan C. Plachot" },
+    "BTA": { municipio: "Municipio A", candidatos: "Álvaro Pereyra, Juan C. Plachot" },
+    "BTB": { municipio: "Municipio A", candidatos: "Álvaro Pereyra, Juan C. Plachot" },
+    "BTC": { municipio: "Municipio A", candidatos: "Álvaro Pereyra, Juan C. Plachot" },
+    "BTD": { municipio: "Municipio A", candidatos: "Álvaro Pereyra, Juan C. Plachot" },
+    "BUA": { municipio: "Municipio A", candidatos: "Álvaro Pereyra, Juan C. Plachot" },
+    "BUB": { municipio: "Municipio A", candidatos: "Álvaro Pereyra, Juan C. Plachot" },
+    "BVA": { municipio: "Municipio A", candidatos: "Álvaro Pereyra, Juan C. Plachot" },
+    "BVB": { municipio: "Municipio A", candidatos: "Álvaro Pereyra, Juan C. Plachot" },
+    "BVC": { municipio: "Municipio A", candidatos: "Álvaro Pereyra, Juan C. Plachot" },
+    "BXA": { municipio: "Municipio A", candidatos: "Álvaro Pereyra, Juan C. Plachot" },
+    "BXB": { municipio: "Municipio A", candidatos: "Álvaro Pereyra, Juan C. Plachot" },
+    "BXC": { municipio: "Municipio A", candidatos: "Álvaro Pereyra, Juan C. Plachot" },
 
-const candidatosDict = {
-    "Municipio A": "Álvaro Pereyra, Juan C. Plachot",
-    "Municipio B": "Florencia Chipolini, Patricia Soria, Chabela Zarrillo",
-    "Municipio C": "Jorge Cabrera, Gabriela López, Damián Salvetto",
-    "Municipio CH": "Mónica Caffa",
-    "Municipio D": "José Machado, Gabriel Velazco",
-    "Municipio E": "Víctor Fomichov, Pilar Olascoaga, Pedro Pastorin",
-    "Municipio F": "Francisco Amorena, Matilde Palermo, Jorge Sartori",
-    "Municipio G": "Leticia de Torres"
+    // Municipio B
+    "AAA": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
+    "ACA": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
+    "AKA": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
+    "AMA": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
+    "APA": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
+
+    // Municipio C
+    "BGA": { municipio: "Municipio C", candidatos: "Jorge Cabrera, Gabriela López, Damián Salvetto" },
+    "BJA": { municipio: "Municipio C", candidatos: "Jorge Cabrera, Gabriela López, Damián Salvetto" },
+    "BKA": { municipio: "Municipio C", candidatos: "Jorge Cabrera, Gabriela López, Damián Salvetto" },
+
+    // Municipio CH
+    "ATB": { municipio: "Municipio CH", candidatos: "Mónica Caffa" },
+    "AUA": { municipio: "Municipio CH", candidatos: "Mónica Caffa" },
+
+    // Municipio D
+    "BBA": { municipio: "Municipio D", candidatos: "José Machado, Gabriel Velazco" },
+    "BNC": { municipio: "Municipio D", candidatos: "José Machado, Gabriel Velazco" },
+
+    // Municipio E
+    "BCA": { municipio: "Municipio E", candidatos: "Víctor Fomichov, Pilar Olascoaga, Pedro Pastorin" },
+
+    // Municipio F
+    "BDA": { municipio: "Municipio F", candidatos: "Francisco Amorena, Matilde Palermo, Jorge Sartori" },
+
+    // Municipio G
+    "BRA": { municipio: "Municipio G", candidatos: "Leticia de Torres" }
 };
 
         // Series de otros departamentos

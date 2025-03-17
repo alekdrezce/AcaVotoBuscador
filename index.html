@@ -10,6 +10,8 @@
         body {
             background-color: #004f9e;
             font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
         }
         #logo {
             width: 200px; /* Logo más grande */
@@ -34,40 +36,58 @@
             display: flex;
             justify-content: center;
             margin-top: 20px;
+            flex-wrap: wrap; /* Para que los elementos se acomoden mejor en pantallas pequeñas */
         }
         .input-container input {
             text-transform: uppercase;
             width: 250px;
-            padding: 10px;
-            font-size: 16px;
+            padding: 15px;
+            font-size: 18px;
             border: none;
             margin-right: 10px;
+            border-radius: 5px; /* Añadido borde redondeado */
+            margin-bottom: 10px;
         }
         .input-container button {
             background-color: #e20613;
             color: #ffffff;
-            padding: 10px 20px;
+            padding: 15px 30px;
             border: none;
-            font-size: 16px;
+            font-size: 18px;
             cursor: pointer;
+            border-radius: 5px; /* Borde redondeado */
+            width: 100%;
         }
         .resultado {
             color: #ffffff;
             font-size: 32px;
             text-align: center;
             margin-top: 30px;
+            padding: 0 15px; /* Padding extra para espacio en pantallas pequeñas */
         }
         .resultado span {
             color: #ffc300;
         }
         @media (max-width: 768px) {
+            .titulo {
+                font-size: 72px; /* Título más pequeño en pantallas pequeñas */
+            }
+            .instructivo {
+                font-size: 24px; /* Reducir tamaño del instructivo */
+            }
             .input-container {
                 flex-direction: column;
                 align-items: center;
             }
             .input-container input {
-                margin-bottom: 10px;
-                width: 100%;
+                width: 90%; /* Hacer que el campo de entrada ocupe más espacio */
+                margin-bottom: 15px;
+            }
+            .input-container button {
+                width: 90%; /* Hacer que el botón ocupe más espacio */
+            }
+            #logo {
+                width: 150px; /* Reducir tamaño del logo en móvil */
             }
         }
     </style>

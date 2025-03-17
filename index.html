@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AcáVoto</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Montserrat+SemiBold:wght@600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #004f9e;
+            font-family: 'Montserrat', sans-serif;
+        }
+        #logo {
+            width: 100px;
+            margin-top: 30px;
+        }
+        .header {
+            color: #ffffff;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .instructivo {
+            font-size: 32px;
+            color: #ffffff;
+        }
+        .input-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .input-container input {
+            text-transform: uppercase;
+            width: 250px;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            margin-right: 10px;
+        }
+        .input-container button {
+            background-color: #e20613;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .resultado {
+            color: #ffffff;
+            font-size: 32px;
+            text-align: center;
+            margin-top: 30px;
+        }
+        .resultado span {
+            color: #ffc300;
+        }
+        @media (max-width: 768px) {
+            .input-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .input-container input {
+                margin-bottom: 10px;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1 style="font-size: 48px; color: #ffc300;">AcáVoto</h1>
+        <p class="instructivo">ingresá tu serie de credencial cívica para identificar tu municipio y conocer sus candidaturas</p>
+    </div>
+
+    <div class="input-container">
+        <input type="text" id="serieInput" placeholder="Introduce tu serie" />
+        <button onclick="buscarMunicipio()">Buscar</button>
+    </div>
+
+    <div id="resultado" class="resultado"></div>
+
+    <div class="text-center">
+        <img src="acavotologo.png" alt="AcáVoto Logo" id="logo">
+    </div>
+
+    <script>
+        const municipiosDict = {
+            "BSA": "Municipio A", "BTA": "Municipio A", "BTB": "Municipio A", "BTC": "Municipio A", "BTD": "Municipio A", "BUA": "Municipio A", "BUB": "Municipio A", "BVA": "Municipio A", "BVB": "Municipio A", "BVC": "Municipio A", "BXA": "Municipio A", "BXB": "Municipio A", "BXC": "Municipio A",
+            "AAA": "Municipio B", "ACA": "Municipio B", "AIA": "Municipio B", "AKA": "Municipio B", "AMA": "Municipio B", "APA": "Municipio B", "ARA": "Municipio B", "ASA": "Municipio B", "ATA": "Municipio B", "AVA": "Municipio B", "BEA": "Municipio B", "BFA": "Municipio B", "BJB": "Municipio B", "BKB": "Municipio B",
+            "BGA": "Municipio C", "BJA": "Municipio C", "BKA": "Municipio C", "BLA": "Municipio C", "BLB": "Municipio C", "BMA": "Municipio C", "BMB": "Municipio C", "BNA": "Municipio C", "BPA": "Municipio C", "BPB": "Municipio C", "BQA": "Municipio C", "BQB": "Municipio C",
+            "ATB": "Municipio Ch", "AUA": "Municipio Ch", "AUB": "Municipio Ch", "AXA": "Municipio Ch", "AXB": "Municipio Ch", "AZA": "Municipio Ch", "ZB": "Municipio Ch", "BAA": "Municipio Ch", "BAB": "Municipio Ch",
+            "BBA": "Municipio D", "BBB": "Municipio D", "BBC": "Municipio D", "BBD": "Municipio D", "BDD": "Municipio D", "BNB": "Municipio D", "BOA": "Municipio D", "BOB": "Municipio D",
+            "BCA": "Municipio E", "BCB": "Municipio E", "BCC": "Municipio E", "BCD": "Municipio E", "BCE": "Municipio E", "BCF": "Municipio E", "BCG": "Municipio E",
+            "BDA": "Municipio F", "BDB": "Municipio F", "BDC": "Municipio F", "BDE": "Municipio F", "BDF": "Municipio F",
+            "BRA": "Municipio G", "BRB": "Municipio G", "BRC": "Municipio G", "BZA": "Municipio G", "BZB": "Municipio G", "BZC": "Municipio G"
+        };
+
+        function buscarMunicipio() {
+            const serie = document.getElementById("serieInput").value.toUpperCase();
+            const municipio = municipiosDict[serie] || "Serie no encontrada";
+
+            let candidatos = "";
+            if (municipio === "Municipio A") {
+                candidatos = "Álvaro Pereyra, Juan C. Planchot";
+            } else if (municipio === "Municipio B") {
+                candidatos = "Florencia Chipollini, Patricia Soria, Chabela Zarrillo";
+            } else if (municipio === "Municipio C") {
+                candidatos = "Jorge Cabrera, Gabriela López, Damián Salvetto";
+            } else if (municipio === "Municipio Ch") {
+                candidatos = "Mónica Caffa";
+            } else if (municipio === "Municipio D") {
+                candidatos = "José Machado, Gabriel Velazco";
+            } else if (municipio === "Municipio E") {
+                candidatos = "Víctor Fomichov, Pilar Olascoaga, Pedro Pastorin";
+            } else if (municipio === "Municipio F") {
+                candidatos = "Francisco Amorena, Matilde Palermo, Jorge Sartori";
+            } else if (municipio === "Municipio G") {
+                candidatos = "Leticia de Torres";
+            }
+
+            document.getElementById("resultado").innerHTML = municipio + "<br>" + candidatos;
+        }
+    </script>
+
+</body>
+</html>

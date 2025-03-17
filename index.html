@@ -388,39 +388,45 @@
         };
 
         function buscarMunicipio() {
-    const serie = document.getElementById("serieInput").value.toUpperCase();
-    let resultadoHTML = "";
+            const serie = document.getElementById("serieInput").value.toUpperCase();
+            let municipio = municipiosDict[serie];  // Buscar en Montevideo
 
-    if (municipiosDict[serie]) {
-        const municipio = municipiosDict[serie];
+            if (!municipio) {
+                municipio = otrosDepartamentosDict[serie]; // Buscar en otros departamentos
+            }
 
-        let candidatos = "";
-        if (municipio === "Municipio A") candidatos = "Juan C. Plachot, Álvaro Pereyra";
-        else if (municipio === "Municipio B") candidatos = "Florencia Chipolini, Patricia Soria, Chabela Zarrillo";
-        else if (municipio === "Municipio C") candidatos = "Jorge Cabrera, Gabriela López, Damián Salvetto";
-        else if (municipio === "Municipio CH") candidatos = "Mónica Caffa";
-        else if (municipio === "Municipio D") candidatos = "José Machado, Gabriel Velazco";
-        else if (municipio === "Municipio E") candidatos = "Víctor Fomichov, Pilar Olascoaga, Pedro Pastorin";
-        else if (municipio === "Municipio F") candidatos = "Francisco Amorena, Matilde Palermo, Jorge Sartori";
-        else if (municipio === "Municipio G") candidatos = "Leticia de Torres";
+            if (municipio) {
+                if (municipio.departamento === "Montevideo") {
+                    // Si la serie pertenece a Montevideo, mostrar la lista de candidatos
+                    let candidatos = "";
+                    if (municipio.municipio === "Municipio A") {
+                        candidatos = "Álvaro Pereyra, Juan C. Plachot";
+                    } else if (municipio.municipio === "Municipio B") {
+                        candidatos = "Florencia Chipolini, Patricia Soria, Chabela Zarrillo";
+                    } else if (municipio.municipio === "Municipio C") {
+                        candidatos = "Jorge Cabrera, Gabriela López, Damián Salvetto";
+                    } else {
+                        candidatos = "No hay candidatos disponibles";
+                    }
 
-        resultadoHTML = `Votás en el <span style="color:#ffc300">${municipio}</span><br>
-        Las candidaturas del Frente Amplio en tu municipio son las siguientes:<br>
-        - ${candidatos.split(", ").join("<br>- ")}`;
-
-    } else if (otrosDeptosDict[serie]) {
-        const info = otrosDeptosDict[serie];
-        resultadoHTML = `La serie corresponde al Municipio <span style="color:#ffc300">${info.municipio}</span> del departamento de <span style="color:#ffc300">${info.departamento}</span>, correspondiente a <span style="color:#ffc300">${info.nombreMunicipio}</span>`;
-    } else {
-        resultadoHTML = "Esta serie no pertenece al departamento de Montevideo";
-    }
-
-    document.getElementById("resultado").innerHTML = resultadoHTML;
-}
-
-document.getElementById("serieInput").addEventListener("keydown", function(event) {
-    if (event.key === 'Enter') buscarMunicipio();
-})
+                    document.getElementById("resultado").innerHTML = `
+                        Votás en el <span style="color:#ffc300">${municipio.municipio}</span><br>
+                        Las candidaturas del Frente Amplio en tu municipio son las siguientes:<br>
+                        - ${candidatos.split(", ").join("<br>- ")}
+                    `;
+                } else {
+                    // Si la serie pertenece a otro departamento, mostrar el formato correspondiente
+                    document.getElementById("resultado").innerHTML = `
+                        La serie ingresada corresponde al municipio <span style="color:#ffc300">${municipio.municipio_letra}</span> 
+                        del departamento <span style="color:#ffc300">${municipio.departamento}</span>, 
+                        correspondiente a <span style="color:#ffc300">${municipio.municipio}</span>.
+                    `;
+                }
+            } else {
+                // Si la serie no está registrada en ningún departamento
+                document.getElementById("resultado").innerHTML = "Esta serie no pertenece al departamento de Montevideo ni a los departamentos registrados.";
+            }
+        }
 
         function toggleHelp() {
             const helpMessage = document.getElementById("helpMessage");

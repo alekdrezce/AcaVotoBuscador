@@ -12,13 +12,19 @@
             font-family: 'Montserrat', sans-serif;
         }
         #logo {
-            width: 100px;
-            margin-top: 30px;
+            width: 200px; /* Logo más grande */
+            margin-top: 50px;
         }
         .header {
             color: #ffffff;
             text-align: center;
             margin-top: 50px;
+        }
+        .titulo {
+            font-size: 96px; /* Título más grande */
+        }
+        .titulo span {
+            color: #ffc300; /* Tres primeras letras en amarillo */
         }
         .instructivo {
             font-size: 32px;
@@ -69,12 +75,12 @@
 <body>
 
     <div class="header">
-        <h1 style="font-size: 48px; color: #ffc300;">AcáVoto</h1>
+        <h1 class="titulo"><span>Acá</span>Voto</h1>
         <p class="instructivo">ingresá tu serie de credencial cívica para identificar tu municipio y conocer sus candidaturas</p>
     </div>
 
     <div class="input-container">
-        <input type="text" id="serieInput" placeholder="Introduce tu serie" />
+        <input type="text" id="serieInput" placeholder="Introduce tu serie" onkeydown="if(event.key === 'Enter'){buscarMunicipio()}"/>
         <button onclick="buscarMunicipio()">Buscar</button>
     </div>
 
@@ -119,7 +125,10 @@
                 candidatos = "Leticia de Torres";
             }
 
-            document.getElementById("resultado").innerHTML = municipio + "<br>" + candidatos;
+            document.getElementById("resultado").innerHTML = 
+                `Votás en el <span style="color:#ffc300">${municipio}</span><br>
+                Los candidatos del Frente Amplio en tu municipio son los siguientes:<br>
+                - ${candidatos.split(", ").join("<br>- ")}`
         }
     </script>
 

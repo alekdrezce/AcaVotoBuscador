@@ -29,7 +29,7 @@
             color: #ffc300; /* Tres primeras letras en amarillo */
         }
         .instructivo {
-            font-size: 32px;
+            font-size: 24px; /* Reducir tamaño del instructivo */
             color: #ffffff;
         }
         .input-container {
@@ -60,7 +60,7 @@
         }
         .resultado {
             color: #ffffff;
-            font-size: 32px;
+            font-size: 24px; /* Reducir tamaño del texto de resultado */
             text-align: center;
             margin-top: 30px;
             padding: 0 15px; /* Padding extra para espacio en pantallas pequeñas */
@@ -71,9 +71,6 @@
         @media (max-width: 768px) {
             .titulo {
                 font-size: 72px; /* Título más pequeño en pantallas pequeñas */
-            }
-            .instructivo {
-                font-size: 24px; /* Reducir tamaño del instructivo */
             }
             .input-container {
                 flex-direction: column;
@@ -96,7 +93,7 @@
 
     <div class="header">
         <h1 class="titulo"><span>Acá</span>Voto</h1>
-        <p class="instructivo">ingresá tu serie de credencial cívica para identificar tu municipio y conocer sus candidaturas</p>
+        <p class="instructivo">Ingresá tu serie de credencial cívica de Montevideo para identificar tu municipio y conocer sus candidaturas</p>
     </div>
 
     <div class="input-container">
@@ -124,7 +121,7 @@
 
         function buscarMunicipio() {
             const serie = document.getElementById("serieInput").value.toUpperCase();
-            const municipio = municipiosDict[serie] || "Serie no encontrada";
+            const municipio = municipiosDict[serie] || "Esta serie no pertenece al departamento de Montevideo";
 
             let candidatos = "";
             if (municipio === "Municipio A") {
@@ -147,7 +144,7 @@
 
             document.getElementById("resultado").innerHTML = 
                 `Votás en el <span style="color:#ffc300">${municipio}</span><br>
-                Los candidatos del Frente Amplio en tu municipio son los siguientes:<br>
+                Las candidaturas del Frente Amplio en tu municipio son las siguientes:<br>
                 - ${candidatos.split(", ").join("<br>- ")}`
         }
     </script>

@@ -380,38 +380,26 @@
     "ICA": { municipio: "Baltasar Brum", departamento: "Artigas", municipio_letra: "C" },
 };
 
-        function buscarMunicipio() {
-            const serie = document.getElementById("serieInput").value.trim().toUpperCase(); // Eliminar espacios en blanco
-            const municipio = municipiosDict[serie] || "Esta serie no pertenece al departamento de Montevideo";
+function buscarMunicipio() {
+    const serie = document.getElementById("serieInput").value.toUpperCase();
+    let municipio = municipiosDict[serie];
 
-            if (municipio === "Esta serie no pertenece al departamento de Montevideo") {
-                document.getElementById("resultado").innerHTML = municipio;
-            } else {
-                let candidatos = "";
-                if (municipio === "Municipio A") {
-                    candidatos = "Álvaro Pereyra, Juan C. Plachot"; // Cambio aquí
-                } else if (municipio === "Municipio B") {
-                    candidatos = "Florencia Chipolini, Patricia Soria, Chabela Zarrillo"; // Cambio aquí
-                } else if (municipio === "Municipio C") {
-                    candidatos = "Jorge Cabrera, Gabriela López, Damián Salvetto";
-                } else if (municipio === "Municipio CH") {
-                    candidatos = "Mónica Caffa";
-                } else if (municipio === "Municipio D") {
-                    candidatos = "José Machado, Gabriel Velazco";
-                } else if (municipio === "Municipio E") {
-                    candidatos = "Víctor Fomichov, Pilar Olascoaga, Pedro Pastorin";
-                } else if (municipio === "Municipio F") {
-                    candidatos = "Francisco Amorena, Matilde Palermo, Jorge Sartori";
-                } else if (municipio === "Municipio G") {
-                    candidatos = "Leticia de Torres";
-                }
+    if (!municipio) {
+        // Si no se encuentra en Montevideo, busca en otrosDepartamentosDict
+        municipio = otrosDepartamentosDict[serie];
+    }
 
-                document.getElementById("resultado").innerHTML = 
-                    `Votás en el <span style="color:#ffc300">${municipio}</span><br>
-                    Las candidaturas del Frente Amplio en tu municipio son las siguientes:<br>
-                    - ${candidatos.split(", ").join("<br>- ")}`
-            }
-        }
+    if (municipio) {
+        // Si se encontró el municipio en cualquiera de los dos diccionarios
+        document.getElementById("resultado").innerHTML = `
+            La credencial ingresada corresponde al municipio de <span style="color:#ffc300">${municipio.municipio}</span>, 
+            del departamento de <span style="color:#ffc300">${municipio.departamento}</span>.
+        `;
+    } else {
+        // Si no se encuentra en ningún diccionario
+        document.getElementById("resultado").innerHTML = "Esta serie no pertenece al departamento de Montevideo ni a los departamentos registrados.";
+    }
+}
 
         function toggleHelp() {
             const helpMessage = document.getElementById("helpMessage");

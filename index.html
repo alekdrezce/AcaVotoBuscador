@@ -130,7 +130,7 @@
 
     <div class="help-message" id="helpMessage">
         <p>Para encontrar tu serie, mirá en tu Credencial Cívica el código de tres letras, como muestra en la imagen:</p>
-        <img src="ejemplo.png" id="helpImage" alt="Ejemplo de serie en la credencial cívica" style="max-width: 500px; width: 100%;"/>
+        <img src="ejemplo.png" id="helpImage" alt="Ejemplo de serie en la credencial cívica" style="max-width: 50px; width: 100%;"/>
     </div>
 
     <div class="text-center">
@@ -148,258 +148,39 @@
             "BDA": "Municipio F", "BDB": "Municipio F", "BDC": "Municipio F", "BDE": "Municipio F", "BDF": "Municipio F",
             "BRA": "Municipio G", "BRB": "Municipio G", "BRC": "Municipio G", "BZA": "Municipio G", "BZB": "Municipio G", "BZC": "Municipio G"
         };
-        const otrosDepartamentosDict = {
-    // Canelones
-    "CMF": { municipio: "Ciudad de la Costa", departamento: "Canelones", municipio_letra: "A" },
-    "CMI": { municipio: "Ciudad de la Costa", departamento: "Canelones", municipio_letra: "A" },
-    "CMJ": { municipio: "Ciudad de la Costa", departamento: "Canelones", municipio_letra: "A" },
-    "CDA": { municipio: "Las Piedras", departamento: "Canelones", municipio_letra: "B" },
-    "CDD": { municipio: "Las Piedras", departamento: "Canelones", municipio_letra: "B" },
-    "CDE": { municipio: "Las Piedras", departamento: "Canelones", municipio_letra: "B" },
-    "CMA": { municipio: "Pando", departamento: "Canelones", municipio_letra: "C" },
-    "CEA": { municipio: "La Paz", departamento: "Canelones", municipio_letra: "CH" },
-    "CAA": { municipio: "Canelones", departamento: "Canelones", municipio_letra: "D" },
-    "CBA": { municipio: "Santa Lucía", departamento: "Canelones", municipio_letra: "E" },
-    "CBB": { municipio: "Santa Lucía", departamento: "Canelones", municipio_letra: "E" },
-    "CBC": { municipio: "Santa Lucía", departamento: "Canelones", municipio_letra: "E" },
-    "CDB": { municipio: "Progreso", departamento: "Canelones", municipio_letra: "F" },
-    "CMD": { municipio: "Paso Carrasco", departamento: "Canelones", municipio_letra: "G" },
-    "CME": { municipio: "Barros Blancos", departamento: "Canelones", municipio_letra: "H" },
-    "CMK": { municipio: "Colonia Nicolich", departamento: "Canelones", municipio_letra: "I" },
-    "CIA": { municipio: "San Ramón", departamento: "Canelones", municipio_letra: "J" },
-    "CMG": { municipio: "Salinas", departamento: "Canelones", municipio_letra: "K" },
-    "CQA": { municipio: "Suárez", departamento: "Canelones", municipio_letra: "L" },
-    "CMH": { municipio: "Parque del Plata", departamento: "Canelones", municipio_letra: "LL" },
-    "CFA": { municipio: "Sauce", departamento: "Canelones", municipio_letra: "M" },
-    "CJA": { municipio: "Tala", departamento: "Canelones", municipio_letra: "N" },
-    "CJB": { municipio: "Tala", departamento: "Canelones", municipio_letra: "N" },
-    "CMC": { municipio: "Atlántida", departamento: "Canelones", municipio_letra: "Ñ" },
-    "CQB": { municipio: "Toledo", departamento: "Canelones", municipio_letra: "O" },
-    "CMB": { municipio: "Empalme Olmos", departamento: "Canelones", municipio_letra: "P" },
-    "CHA": { municipio: "San Jacinto", departamento: "Canelones", municipio_letra: "Q" },
-    "CGA": { municipio: "Santa Rosa", departamento: "Canelones", municipio_letra: "R" },
-    "CLB": { municipio: "La Floresta", departamento: "Canelones", municipio_letra: "S" },
-    "CLC": { municipio: "La Floresta", departamento: "Canelones", municipio_letra: "S" },
-    "CKA": { municipio: "Migues", departamento: "Canelones", municipio_letra: "T" },
-    "CCA": { municipio: "Los Cerrillos", departamento: "Canelones", municipio_letra: "U" },
-    "CPA": { municipio: "San Bautista", departamento: "Canelones", municipio_letra: "V" },
-    "CPB": { municipio: "San Bautista", departamento: "Canelones", municipio_letra: "V" },
-    "CLA": { municipio: "Soca", departamento: "Canelones", municipio_letra: "W" },
-    "CLD": { municipio: "Soca", departamento: "Canelones", municipio_letra: "W" },
-    "CLE": { municipio: "Soca", departamento: "Canelones", municipio_letra: "W" },
-    "CKB": { municipio: "Montes", departamento: "Canelones", municipio_letra: "X" },
-    "COA": { municipio: "San Antonio", departamento: "Canelones", municipio_letra: "Y" },
-    "CCB": { municipio: "Aguas Corrientes", departamento: "Canelones", municipio_letra: "Z" },
-    "CDC": { municipio: "18 de Mayo", departamento: "Canelones", municipio_letra: "AB" },
-    "CQC": { municipio: "Del Andaluz", departamento: "Canelones", municipio_letra: "AC" },
-    "CNA": { municipio: "Juanicó", departamento: "Canelones", municipio_letra: "AD" },
 
-    // Maldonado
-    "DAA": { municipio: "Maldonado", departamento: "Maldonado", municipio_letra: "A" },
-    "DAC": { municipio: "Maldonado", departamento: "Maldonado", municipio_letra: "A" },
-    "DAE": { municipio: "Maldonado", departamento: "Maldonado", municipio_letra: "A" },
-    "DAF": { municipio: "Maldonado", departamento: "Maldonado", municipio_letra: "A" },
-    "DAG": { municipio: "Maldonado", departamento: "Maldonado", municipio_letra: "A" },
-    "DAH": { municipio: "Maldonado", departamento: "Maldonado", municipio_letra: "A" },
-    "DAI": { municipio: "Maldonado", departamento: "Maldonado", municipio_letra: "A" },
-    "DAJ": { municipio: "Maldonado", departamento: "Maldonado", municipio_letra: "A" },
-    "DAD": { municipio: "Maldonado", departamento: "Maldonado", municipio_letra: "A" },
-    "DBA": { municipio: "San Carlos", departamento: "Maldonado", municipio_letra: "B" },
-    "DBB": { municipio: "San Carlos", departamento: "Maldonado", municipio_letra: "B" },
-    "DBC": { municipio: "San Carlos", departamento: "Maldonado", municipio_letra: "B" },
-    "DBD": { municipio: "San Carlos", departamento: "Maldonado", municipio_letra: "B" },
-    "DBE": { municipio: "San Carlos", departamento: "Maldonado", municipio_letra: "B" },
-    "DBF": { municipio: "San Carlos", departamento: "Maldonado", municipio_letra: "B" },
-    "DBG": { municipio: "San Carlos", departamento: "Maldonado", municipio_letra: "B" },
-    "DDA": { municipio: "San Carlos", departamento: "Maldonado", municipio_letra: "B" },
-    "DDB": { municipio: "San Carlos", departamento: "Maldonado", municipio_letra: "B" },
-    "DDC": { municipio: "San Carlos", departamento: "Maldonado", municipio_letra: "B" },
-    "DED": { municipio: "San Carlos", departamento: "Maldonado", municipio_letra: "B" },
-    "DEE": { municipio: "San Carlos", departamento: "Maldonado", municipio_letra: "B" },
-    "DEF": { municipio: "San Carlos", departamento: "Maldonado", municipio_letra: "B" },
-    "DEH": { municipio: "San Carlos", departamento: "Maldonado", municipio_letra: "B" },
-    "DCB": { municipio: "Piriápolis", departamento: "Maldonado", municipio_letra: "C" },
-    "DCG": { municipio: "Piriápolis", departamento: "Maldonado", municipio_letra: "C" },
-    "DAB": { municipio: "Punta del Este", departamento: "Maldonado", municipio_letra: "CH" },
-    "DAK": { municipio: "Punta del Este", departamento: "Maldonado", municipio_letra: "CH" },
-    "DCA": { municipio: "Pan de Azúcar", departamento: "Maldonado", municipio_letra: "D" },
-    "DCC": { municipio: "Pan de Azúcar", departamento: "Maldonado", municipio_letra: "D" },
-    "DDD": { municipio: "Aiguá", departamento: "Maldonado", municipio_letra: "E" },
-    "DFA": { municipio: "Aiguá", departamento: "Maldonado", municipio_letra: "E" },
-    "DFB": { municipio: "Aiguá", departamento: "Maldonado", municipio_letra: "E" },
-    "DCD": { municipio: "Solís Grande", departamento: "Maldonado", municipio_letra: "F" },
-    "DCE": { municipio: "Solís Grande", departamento: "Maldonado", municipio_letra: "F" },
-    "DCF": { municipio: "Solís Grande", departamento: "Maldonado", municipio_letra: "F" },
-    "DEA": { municipio: "Garzón", departamento: "Maldonado", municipio_letra: "G" },
-    "DEC": { municipio: "Garzón", departamento: "Maldonado", municipio_letra: "G" },
-    "DEB": { municipio: "Garzón", departamento: "Maldonado", municipio_letra: "G" },
-    "DEG": { municipio: "Garzón", departamento: "Maldonado", municipio_letra: "G" },
+        function buscarMunicipio() {
+            const serie = document.getElementById("serieInput").value.toUpperCase();
+            const municipio = municipiosDict[serie] || "Esta serie no pertenece al departamento de Montevideo";
 
-    // Lavalleja
-    "SHD": { municipio: "José Pedro Varela", departamento: "Lavalleja", municipio_letra: "A" },
-    "SCC": { municipio: "Solís de Mataojo", departamento: "Lavalleja", municipio_letra: "B" },
-    "SIE": { municipio: "José Batlle y Ordóñez", departamento: "Lavalleja", municipio_letra: "C" },
-    "SGC": { municipio: "Mariscala", departamento: "Lavalleja", municipio_letra: "CH" },
+            if (municipio === "Esta serie no pertenece al departamento de Montevideo") {
+                document.getElementById("resultado").innerHTML = municipio;
+            } else {
+                let candidatos = "";
+                if (municipio === "Municipio A") {
+                    candidatos = "Álvaro Pereyra, Juan C. Plachot"; // Cambio aquí
+                } else if (municipio === "Municipio B") {
+                    candidatos = "Florencia Chipolini, Patricia Soria, Chabela Zarrillo"; // Cambio aquí
+                } else if (municipio === "Municipio C") {
+                    candidatos = "Jorge Cabrera, Gabriela López, Damián Salvetto";
+                } else if (municipio === "Municipio CH") {
+                    candidatos = "Mónica Caffa";
+                } else if (municipio === "Municipio D") {
+                    candidatos = "José Machado, Gabriel Velazco";
+                } else if (municipio === "Municipio E") {
+                    candidatos = "Víctor Fomichov, Pilar Olascoaga, Pedro Pastorin";
+                } else if (municipio === "Municipio F") {
+                    candidatos = "Francisco Amorena, Matilde Palermo, Jorge Sartori";
+                } else if (municipio === "Municipio G") {
+                    candidatos = "Leticia de Torres";
+                }
 
-    // Rocha
-    "EFB": { municipio: "Chuy", departamento: "Rocha", municipio_letra: "A" },
-    "EDC": { municipio: "Castillos", departamento: "Rocha", municipio_letra: "B" },
-    "ECB": { municipio: "Castillos", departamento: "Rocha", municipio_letra: "B" },
-    "EEA": { municipio: "Lascano", departamento: "Rocha", municipio_letra: "C" },
-    "ECG": { municipio: "La Paloma", departamento: "Rocha", municipio_letra: "CH" },
-
-    // Cerro Largo
-    "GDA": { municipio: "Río Branco", departamento: "Cerro Largo", municipio_letra: "A" },
-    "GDB": { municipio: "Río Branco", departamento: "Cerro Largo", municipio_letra: "A" },
-    "GDC": { municipio: "Río Branco", departamento: "Cerro Largo", municipio_letra: "A" },
-    "GDD": { municipio: "Río Branco", departamento: "Cerro Largo", municipio_letra: "A" },
-    "GFB": { municipio: "Fraile Muerto", departamento: "Cerro Largo", municipio_letra: "B" },
-    "GEC": { municipio: "Isidoro Noblía", departamento: "Cerro Largo", municipio_letra: "C" },
-    "GED": { municipio: "Isidoro Noblía", departamento: "Cerro Largo", municipio_letra: "C" },
-    "GEF": { municipio: "Isidoro Noblía", departamento: "Cerro Largo", municipio_letra: "C" },
-    "GEE": { municipio: "Aceguá", departamento: "Cerro Largo", municipio_letra: "CH" },
-    "GGA": { municipio: "Tupambaé", departamento: "Cerro Largo", municipio_letra: "D" },
-    "GGC": { municipio: "Tupambaé", departamento: "Cerro Largo", municipio_letra: "D" },
-    "GCA": { municipio: "Plácido Rosas", departamento: "Cerro Largo", municipio_letra: "E" },
-    "GGD": { municipio: "Arévalo", departamento: "Cerro Largo", municipio_letra: "F" },
-    "GGE": { municipio: "Arévalo", departamento: "Cerro Largo", municipio_letra: "F" },
-    "GGF": { municipio: "Arévalo", departamento: "Cerro Largo", municipio_letra: "F" },
-    "GGG": { municipio: "Arévalo", departamento: "Cerro Largo", municipio_letra: "F" },
-    "GGH": { municipio: "Arévalo", departamento: "Cerro Largo", municipio_letra: "F" },
-
-    // Treinta y Tres
-    "FBA": { municipio: "Vergara", departamento: "Treinta y Tres", municipio_letra: "A" },
-    "FDA": { municipio: "Santa Clara de Olimar", departamento: "Treinta y Tres", municipio_letra: "B" },
-    "FDB": { municipio: "Cerro Chato", departamento: "Treinta y Tres", municipio_letra: "C" },
-    "FBC": { municipio: "General Enrique Martínez", departamento: "Treinta y Tres", municipio_letra: "CH" },
-    "FEA": { municipio: "Villa Sara", departamento: "Treinta y Tres", municipio_letra: "D" },
-    "FBE": { municipio: "Rincón", departamento: "Treinta y Tres", municipio_letra: "E" },
-
-    // Rivera
-    "HCC": { municipio: "Tranqueras", departamento: "Rivera", municipio_letra: "A" },
-    "HCD": { municipio: "Tranqueras", departamento: "Rivera", municipio_letra: "A" },
-    "HCG": { municipio: "Tranqueras", departamento: "Rivera", municipio_letra: "A" },
-    "HFG": { municipio: "Vichadero", departamento: "Rivera", municipio_letra: "B" },
-    "HDB": { municipio: "Minas de Corrales", departamento: "Rivera", municipio_letra: "C" },
-
-    // Tacuarembó
-    "HCC": { municipio: "Tranqueras", departamento: "Tacuarembó", municipio_letra: "A" },
-    "HCD": { municipio: "Tranqueras", departamento: "Tacuarembó", municipio_letra: "A" },
-    "HCG": { municipio: "Tranqueras", departamento: "Tacuarembó", municipio_letra: "A" },
-    "HFG": { municipio: "Vichadero", departamento: "Tacuarembó", municipio_letra: "B" },
-
-    // Durazno
-    "RDC": { municipio: "Sarandí del Yí", departamento: "Durazno", municipio_letra: "A" },
-    "RDD": { municipio: "Sarandí del Yí", departamento: "Durazno", municipio_letra: "A" },
-    "RDE": { municipio: "Sarandí del Yí", departamento: "Durazno", municipio_letra: "A" },
-    "RCC": { municipio: "Villa del Carmen", departamento: "Durazno", municipio_letra: "B" },
-    "RCD": { municipio: "Villa del Carmen", departamento: "Durazno", municipio_letra: "B" },
-
-    // Florida
-    "QCA": { municipio: "Sarandí Grande", departamento: "Florida", municipio_letra: "A" },
-    "QDC": { municipio: "Casupá", departamento: "Florida", municipio_letra: "B" },
-    "QDD": { municipio: "Fray Marcos", departamento: "Florida", municipio_letra: "C" },
-
-    // Flores
-    "PBD": { municipio: "Ismael Cortinas", departamento: "Flores", municipio_letra: "A" },
-
-    // San José
-    "OEI": { municipio: "Ciudad del Plata", departamento: "San José", municipio_letra: "A" },
-    "OGA": { municipio: "Ciudad del Plata", departamento: "San José", municipio_letra: "A" },
-    "OGB": { municipio: "Ciudad del Plata", departamento: "San José", municipio_letra: "A" },
-    "OGC": { municipio: "Ciudad del Plata", departamento: "San José", municipio_letra: "A" },
-    "OGD": { municipio: "Ciudad del Plata", departamento: "San José", municipio_letra: "A" },
-    "OGE": { municipio: "Ciudad del Plata", departamento: "San José", municipio_letra: "A" },
-    "OEA": { municipio: "Libertad", departamento: "San José", municipio_letra: "B" },
-    "OEB": { municipio: "Libertad", departamento: "San José", municipio_letra: "B" },
-    "OEH": { municipio: "Libertad", departamento: "San José", municipio_letra: "B" },
-    "OCH": { municipio: "Rodríguez", departamento: "San José", municipio_letra: "C" },
-    "ODA": { municipio: "Rodríguez", departamento: "San José", municipio_letra: "C" },
-    "ODB": { municipio: "Rodríguez", departamento: "San José", municipio_letra: "C" },
-    "ODC": { municipio: "Rodríguez", departamento: "San José", municipio_letra: "C" },
-    "ODE": { municipio: "Rodríguez", departamento: "San José", municipio_letra: "C" },
-    "ODF": { municipio: "Rodríguez", departamento: "San José", municipio_letra: "C" },
-    "ODG": { municipio: "Rodríguez", departamento: "San José", municipio_letra: "C" },
-
-    // Colonia
-    "NHB": { municipio: "Carmelo", departamento: "Colonia", municipio_letra: "A" },
-    "NLB": { municipio: "Juan L. Lacaze", departamento: "Colonia", municipio_letra: "B" },
-    "NLC": { municipio: "Juan L. Lacaze", departamento: "Colonia", municipio_letra: "B" },
-    "NEB": { municipio: "Nueva Helvecia", departamento: "Colonia", municipio_letra: "C" },
-    "NCB": { municipio: "Rosario", departamento: "Colonia", municipio_letra: "CH" },
-    "NIB": { municipio: "Nueva Palmira", departamento: "Colonia", municipio_letra: "D" },
-
-    // Soriano
-    "MCA": { municipio: "Dolores", departamento: "Soriano", municipio_letra: "A" },
-    "MCB": { municipio: "Dolores", departamento: "Soriano", municipio_letra: "A" },
-    "MFA": { municipio: "Cardona", departamento: "Soriano", municipio_letra: "B" },
-    "MEE": { municipio: "José Enrique Rodó", departamento: "Soriano", municipio_letra: "C" },
-    "MFC": { municipio: "José Enrique Rodó", departamento: "Soriano", municipio_letra: "C" },
-    "MGJ": { municipio: "Palmitas", departamento: "Soriano", municipio_letra: "CH" },
-    "MBA": { municipio: "Villa Santo Domingo de Soriano", departamento: "Soriano", municipio_letra: "D" },
-
-    // Río Negro
-    "LBC": { municipio: "Young", departamento: "Río Negro", municipio_letra: "A" },
-    "LBD": { municipio: "Young", departamento: "Río Negro", municipio_letra: "A" },
-    "LAB": { municipio: "Nuevo Berlín", departamento: "Río Negro", municipio_letra: "B" },
-    "LBA": { municipio: "San Javier", departamento: "Río Negro", municipio_letra: "C" },
-
-    // Paysandú
-    "KEA": { municipio: "Guichón", departamento: "Paysandú", municipio_letra: "A" },
-    "KEB": { municipio: "Guichón", departamento: "Paysandú", municipio_letra: "A" },
-    "KEC": { municipio: "Guichón", departamento: "Paysandú", municipio_letra: "A" },
-    "KED": { municipio: "Guichón", departamento: "Paysandú", municipio_letra: "A" },
-    "KFA": { municipio: "Quebracho", departamento: "Paysandú", municipio_letra: "B" },
-    "KFC": { municipio: "Quebracho", departamento: "Paysandú", municipio_letra: "B" },
-    "KCD": { municipio: "Porvenir", departamento: "Paysandú", municipio_letra: "C" },
-    "KCE": { municipio: "Porvenir", departamento: "Paysandú", municipio_letra: "C" },
-    "KDA": { municipio: "Porvenir", departamento: "Paysandú", municipio_letra: "C" },
-    "KDB": { municipio: "Porvenir", departamento: "Paysandú", municipio_letra: "C" },
-    "KDD": { municipio: "Porvenir", departamento: "Paysandú", municipio_letra: "C" },
-    "KDE": { municipio: "Porvenir", departamento: "Paysandú", municipio_letra: "C" },
-
-    // Salto
-    "JDB": { municipio: "Villa Constitución", departamento: "Salto", municipio_letra: "A" },
-    "JDC": { municipio: "Villa Constitución", departamento: "Salto", municipio_letra: "A" },
-    "JDD": { municipio: "Villa Constitución", departamento: "Salto", municipio_letra: "A" },
-    "JDE": { municipio: "Pueblo Belén", departamento: "Salto", municipio_letra: "B" },
-    "JEC": { municipio: "Pueblo Rincón de Valentín", departamento: "Salto", municipio_letra: "C" },
-    "JEA": { municipio: "Colonia Lavalleja", departamento: "Salto", municipio_letra: "CH" },
-    "JEB": { municipio: "Colonia Lavalleja", departamento: "Salto", municipio_letra: "CH" },
-    "JCA": { municipio: "Pueblo San Antonio", departamento: "Salto", municipio_letra: "D" },
-    "JFD": { municipio: "Mataojo", departamento: "Salto", municipio_letra: "E" },
-    "JFE": { municipio: "Mataojo", departamento: "Salto", municipio_letra: "E" },
-    "JFF": { municipio: "Mataojo", departamento: "Salto", municipio_letra: "E" },
-    "JFG": { municipio: "Mataojo", departamento: "Salto", municipio_letra: "E" },
-
-    // Artigas
-    "ICD": { municipio: "Bella Unión", departamento: "Artigas", municipio_letra: "A" },
-    "ICE": { municipio: "Bella Unión", departamento: "Artigas", municipio_letra: "A" },
-    "ICF": { municipio: "Bella Unión", departamento: "Artigas", municipio_letra: "A" },
-    "ICC": { municipio: "Tomás Gomensoro", departamento: "Artigas", municipio_letra: "B" },
-    "ICA": { municipio: "Baltasar Brum", departamento: "Artigas", municipio_letra: "C" },
-};
-
-function buscarMunicipio() {
-    const serie = document.getElementById("serieInput").value.toUpperCase();
-    let municipio = municipiosDict[serie];
-
-    if (!municipio) {
-        // Si no se encuentra en Montevideo, busca en otrosDepartamentosDict
-        municipio = otrosDepartamentosDict[serie];
-    }
-
-    if (municipio) {
-        // Si se encontró el municipio en cualquiera de los dos diccionarios
-        document.getElementById("resultado").innerHTML = `
-            La credencial ingresada corresponde al municipio de <span style="color:#ffc300">${municipio.municipio}</span>, 
-            del departamento de <span style="color:#ffc300">${municipio.departamento}</span>.
-        `;
-    } else {
-        // Si no se encuentra en ningún diccionario
-        document.getElementById("resultado").innerHTML = "Esta serie no pertenece al departamento de Montevideo ni a los departamentos registrados.";
-    }
-}
+                document.getElementById("resultado").innerHTML = 
+                    `Votás en el <span style="color:#ffc300">${municipio}</span><br>
+                    Las candidaturas del Frente Amplio en tu municipio son las siguientes:<br>
+                    - ${candidatos.split(", ").join("<br>- ")}`
+            }
+        }
 
         function toggleHelp() {
             const helpMessage = document.getElementById("helpMessage");

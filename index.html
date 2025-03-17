@@ -143,15 +143,51 @@
     <script>
         // Series de Montevideo
         const municipiosDict = {
-            "BSA": "Municipio A", "BSB": "Municipio A", "BTA": "Municipio A", "BTB": "Municipio A", "BTC": "Municipio A", "BTD": "Municipio A", "BUA": "Municipio A", "BUB": "Municipio A", "BVA": "Municipio A", "BVB": "Municipio A", "BVC": "Municipio A", "BXA": "Municipio A", "BXB": "Municipio A", "BXC": "Municipio A",
-            "AAA": "Municipio B", "AAB": "Municipio B", "ABA": "Municipio B", "ABB": "Municipio B", "ACA": "Municipio B", "ACB": "Municipio B", "ADA": "Municipio B", "ADB": "Municipio B", "AEA": "Municipio B", "AEB": "Municipio B", "AFA": "Municipio B", "AFB": "Municipio B", "AGA": "Municipio B", "AGB": "Municipio B", "AHA": "Municipio B", "AHB": "Municipio B", "AIA": "Municipio B", "AIB": "Municipio B", "AJA": "Municipio B", "AJB": "Municipio B", "AKA": "Municipio B", "AKB": "Municipio B", "ALA": "Municipio B", "ALB": "Municipio B", "AMA": "Municipio B", "AMB": "Municipio B", "ANA": "Municipio B", "ANB": "Municipio B", "AOA": "Municipio B", "AOB": "Municipio B", "APA": "Municipio B", "APB": "Municipio B", "AQA": "Municipio B", "AQB": "Municipio B", "ARA": "Municipio B", "ARB": "Municipio B", "ASA": "Municipio B", "ASB": "Municipio B", "AVB": "Municipio B", "ATA": "Municipio B", "AVA": "Municipio B", "BEA": "Municipio B", "BEB": "Municipio B", "BFA": "Municipio B", "BFB": "Municipio B", "BJB": "Municipio B", "BKB": "Municipio B",
-            "BGA": "Municipio C", "BGB": "Municipio C", "BHA": "Municipio C", "BHB": "Municipio C", "BIA": "Municipio C", "BIB": "Municipio C", "BJA": "Municipio C", "BKA": "Municipio C", "BLA": "Municipio C", "BLB": "Municipio C", "BMA": "Municipio C", "BMB": "Municipio C", "BNA": "Municipio C", "BPA": "Municipio C", "BPB": "Municipio C", "BQA": "Municipio C", "BQB": "Municipio C",
-            "ATB": "Municipio CH", "AUA": "Municipio CH", "AUB": "Municipio CH", "AXA": "Municipio CH", "AXB": "Municipio CH", "AZA": "Municipio CH", "AZB": "Municipio CH", "BAA": "Municipio CH", "BAB": "Municipio CH",
-            "BBA": "Municipio D", "BBB": "Municipio D", "BBC": "Municipio D", "BBD": "Municipio D", "BDD": "Municipio D", "BNB": "Municipio D", "BNC": "Municipio D", "BOA": "Municipio D", "BOB": "Municipio D",
-            "BCA": "Municipio E", "BCB": "Municipio E", "BCC": "Municipio E", "BCD": "Municipio E", "BCE": "Municipio E", "BCF": "Municipio E", "BCG": "Municipio E",
-            "BDA": "Municipio F", "BDB": "Municipio F", "BDC": "Municipio F", "BDE": "Municipio F", "BDF": "Municipio F",
-            "BRA": "Municipio G", "BRB": "Municipio G", "BRC": "Municipio G", "BZA": "Municipio G", "BZB": "Municipio G", "BZC": "Municipio G"
-        };
+    // Municipio A
+    "BSA": "Municipio A", "BTA": "Municipio A", "BTB": "Municipio A", "BTC": "Municipio A", "BTD": "Municipio A",
+    "BUA": "Municipio A", "BUB": "Municipio A", "BVA": "Municipio A", "BVB": "Municipio A", "BVC": "Municipio A",
+    "BXA": "Municipio A", "BXB": "Municipio A", "BXC": "Municipio A",
+    
+    // Municipio B
+    "AAA": "Municipio B", "ACA": "Municipio B", "AKA": "Municipio B", "AMA": "Municipio B", "APA": "Municipio B",
+    "ARA": "Municipio B", "ASA": "Municipio B", "ATA": "Municipio B", "AVA": "Municipio B", "BEA": "Municipio B",
+    "BFA": "Municipio B", "BJB": "Municipio B", "BKB": "Municipio B",
+    
+    // Municipio C
+    "BGA": "Municipio C", "BJA": "Municipio C", "BKA": "Municipio C", "BLA": "Municipio C", "BLB": "Municipio C",
+    "BMA": "Municipio C", "BMB": "Municipio C", "BNA": "Municipio C", "BPA": "Municipio C", "BPB": "Municipio C",
+    "BQA": "Municipio C", "BQB": "Municipio C",
+    
+    // Municipio CH
+    "ATB": "Municipio CH", "AUA": "Municipio CH", "AUB": "Municipio CH", "AXA": "Municipio CH", "AXB": "Municipio CH",
+    "AZA": "Municipio CH", "AZB": "Municipio CH", "BAA": "Municipio CH", "BAB": "Municipio CH",
+    
+    // Municipio D
+    "BBA": "Municipio D", "BBB": "Municipio D", "BBC": "Municipio D", "BDD": "Municipio D", "BNC": "Municipio D",
+    "BOA": "Municipio D", "BOB": "Municipio D",
+    
+    // Municipio E
+    "BCA": "Municipio E", "BCB": "Municipio E", "BCC": "Municipio E", "BCD": "Municipio E", "BCE": "Municipio E",
+    "BCF": "Municipio E", "BCG": "Municipio E",
+    
+    // Municipio F
+    "BDA": "Municipio F", "BDB": "Municipio F", "BDC": "Municipio F", "BDE": "Municipio F", "BDF": "Municipio F",
+    
+    // Municipio G
+    "BRA": "Municipio G", "BRB": "Municipio G", "BRC": "Municipio G", "BZA": "Municipio G", "BZB": "Municipio G",
+    "BZC": "Municipio G"
+};
+
+const candidatosDict = {
+    "Municipio A": "Álvaro Pereyra, Juan C. Plachot",
+    "Municipio B": "Florencia Chipolini, Patricia Soria, Chabela Zarrillo",
+    "Municipio C": "Jorge Cabrera, Gabriela López, Damián Salvetto",
+    "Municipio CH": "Mónica Caffa",
+    "Municipio D": "José Machado, Gabriel Velazco",
+    "Municipio E": "Víctor Fomichov, Pilar Olascoaga, Pedro Pastorin",
+    "Municipio F": "Francisco Amorena, Matilde Palermo, Jorge Sartori",
+    "Municipio G": "Leticia de Torres"
+};
 
         // Series de otros departamentos
         const otrosDepartamentosDict = {
@@ -388,21 +424,12 @@
         };
 
         function buscarMunicipio() {
-    const serie = document.getElementById("serieInput").value.toUpperCase();
+    const serie = document.getElementById("serieInput").value.toUpperCase().trim();
     
     if (municipiosDict[serie]) {
         // 🔹 **Si la serie pertenece a Montevideo**
-        const municipio = municipiosDict[serie];
-
-        let candidatos = "";
-        if (municipio === "Municipio A") candidatos = "Álvaro Pereyra, Juan C. Plachot";
-        else if (municipio === "Municipio B") candidatos = "Florencia Chipolini, Patricia Soria, Chabela Zarrillo";
-        else if (municipio === "Municipio C") candidatos = "Jorge Cabrera, Gabriela López, Damián Salvetto";
-        else if (municipio === "Municipio CH") candidatos = "Mónica Caffa";
-        else if (municipio === "Municipio D") candidatos = "José Machado, Gabriel Velazco";
-        else if (municipio === "Municipio E") candidatos = "Víctor Fomichov, Pilar Olascoaga, Pedro Pastorin";
-        else if (municipio === "Municipio F") candidatos = "Francisco Amorena, Matilde Palermo, Jorge Sartori";
-        else if (municipio === "Municipio G") candidatos = "Leticia de Torres";
+        const municipio = municipiosDict[serie].municipio;
+        const candidatos = municipiosDict[serie].candidatos;
 
         document.getElementById("resultado").innerHTML = `
             Votás en el <span style="color:#ffc300">${municipio}</span><br>

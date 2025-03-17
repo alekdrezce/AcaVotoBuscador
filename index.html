@@ -393,13 +393,34 @@
             }
 
             if (municipio) {
-                // Si la serie corresponde a un municipio válido
-                document.getElementById("resultado").innerHTML = `
-                    La credencial ingresada corresponde al municipio de <span style="color:#ffc300">${municipio.municipio}</span>, 
-                    del departamento de <span style="color:#ffc300">${municipio.departamento}</span>.
-                `;
+                if (municipio.departamento === "Montevideo") {
+                    // Si la serie pertenece a Montevideo, mostrar la lista de candidatos
+                    let candidatos = "";
+                    if (municipio.municipio === "Municipio A") {
+                        candidatos = "Álvaro Pereyra, Juan C. Plachot";
+                    } else if (municipio.municipio === "Municipio B") {
+                        candidatos = "Florencia Chipolini, Patricia Soria, Chabela Zarrillo";
+                    } else if (municipio.municipio === "Municipio C") {
+                        candidatos = "Jorge Cabrera, Gabriela López, Damián Salvetto";
+                    } else {
+                        candidatos = "No hay candidatos disponibles";
+                    }
+
+                    document.getElementById("resultado").innerHTML = `
+                        Votás en el <span style="color:#ffc300">${municipio.municipio}</span><br>
+                        Las candidaturas del Frente Amplio en tu municipio son las siguientes:<br>
+                        - ${candidatos.split(", ").join("<br>- ")}
+                    `;
+                } else {
+                    // Si la serie pertenece a otro departamento, mostrar el formato correspondiente
+                    document.getElementById("resultado").innerHTML = `
+                        La serie ingresada corresponde al municipio <span style="color:#ffc300">${municipio.municipio_letra}</span> 
+                        del departamento <span style="color:#ffc300">${municipio.departamento}</span>, 
+                        correspondiente a <span style="color:#ffc300">${municipio.municipio}</span>.
+                    `;
+                }
             } else {
-                // Si la serie no corresponde a ningún municipio
+                // Si la serie no está registrada en ningún departamento
                 document.getElementById("resultado").innerHTML = "Esta serie no pertenece al departamento de Montevideo ni a los departamentos registrados.";
             }
         }

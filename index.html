@@ -143,54 +143,15 @@
     <script>
         // Series de Montevideo
         const municipiosDict = {
-    // MUNICIPIO A
-    "BSA": "Municipio A", "BTA": "Municipio A", "BTB": "Municipio A", "BTC": "Municipio A",
-    "BTD": "Municipio A", "BUA": "Municipio A", "BUB": "Municipio A", "BVA": "Municipio A",
-    "BVB": "Municipio A", "BVC": "Municipio A", "BXA": "Municipio A", "BXB": "Municipio A",
-    "BXC": "Municipio A", "BSB": "Municipio A", // Serie en proceso de supresión
-
-    // MUNICIPIO B
-    "AAA": "Municipio B", "ACA": "Municipio B", "AKA": "Municipio B", "AMA": "Municipio B",
-    "APA": "Municipio B", "ARA": "Municipio B", "ASA": "Municipio B", "AVA": "Municipio B",
-    "BEA": "Municipio B", "BFA": "Municipio B", "BJB": "Municipio B", "BKB": "Municipio B",
-    // Series en proceso de supresión:
-    "AAB": "Municipio B", "ABA": "Municipio B", "ACB": "Municipio B", "ADA": "Municipio B",
-    "ADB": "Municipio B", "AEA": "Municipio B", "AEB": "Municipio B", "AFA": "Municipio B",
-    "AFB": "Municipio B", "AGA": "Municipio B", "AGB": "Municipio B", "AHA": "Municipio B",
-    "AHB": "Municipio B", "AIA": "Municipio B", "AIB": "Municipio B", "AJA": "Municipio B",
-    "AJB": "Municipio B", "AKB": "Municipio B", "ALA": "Municipio B", "ALB": "Municipio B",
-    "AMB": "Municipio B", "ANB": "Municipio B", "AOB": "Municipio B", "APB": "Municipio B",
-    "AQB": "Municipio B", "ARB": "Municipio B", "ASB": "Municipio B", "AVB": "Municipio B",
-    "BEB": "Municipio B", "BFB": "Municipio B",
-
-    // MUNICIPIO C
-    "BGA": "Municipio C", "BJA": "Municipio C", "BKA": "Municipio C", "BLA": "Municipio C",
-    "BLB": "Municipio C", "BMA": "Municipio C", "BMB": "Municipio C", "BNA": "Municipio C",
-    "BPA": "Municipio C", "BPB": "Municipio C", "BQA": "Municipio C", "BQB": "Municipio C",
-    // Series en proceso de supresión:
-    "BGB": "Municipio C", "BHA": "Municipio C", "BHB": "Municipio C",
-
-    // MUNICIPIO CH
-    "ATB": "Municipio CH", "AUA": "Municipio CH", "AUB": "Municipio CH", "AXA": "Municipio CH",
-    "AXB": "Municipio CH", "AZA": "Municipio CH", "AZB": "Municipio CH", "BAA": "Municipio CH",
-    "BAB": "Municipio CH",
-
-    // MUNICIPIO D
-    "BBA": "Municipio D", "BBB": "Municipio D", "BBC": "Municipio D", "BDD": "Municipio D",
-    "BNC": "Municipio D", "BOA": "Municipio D", "BOB": "Municipio D",
-
-    // MUNICIPIO E
-    "BCA": "Municipio E", "BCB": "Municipio E", "BCC": "Municipio E", "BCD": "Municipio E",
-    "BCE": "Municipio E", "BCF": "Municipio E", "BCG": "Municipio E",
-
-    // MUNICIPIO F
-    "BDA": "Municipio F", "BDB": "Municipio F", "BDC": "Municipio F", "BDE": "Municipio F",
-    "BDF": "Municipio F",
-
-    // MUNICIPIO G
-    "BRA": "Municipio G", "BRB": "Municipio G", "BRC": "Municipio G", "BZA": "Municipio G",
-    "BZB": "Municipio G", "BZC": "Municipio G"
-};
+            "BSA": "Municipio A", "BSB": "Municipio A", "BTA": "Municipio A", "BTB": "Municipio A", "BTC": "Municipio A", "BTD": "Municipio A", "BUA": "Municipio A", "BUB": "Municipio A", "BVA": "Municipio A", "BVB": "Municipio A", "BVC": "Municipio A", "BXA": "Municipio A", "BXB": "Municipio A", "BXC": "Municipio A",
+            "AAA": "Municipio B", "AAB": "Municipio B", "ABA": "Municipio B", "ABB": "Municipio B", "ACA": "Municipio B", "ACB": "Municipio B", "ADA": "Municipio B", "ADB": "Municipio B", "AEA": "Municipio B", "AEB": "Municipio B", "AFA": "Municipio B", "AFB": "Municipio B", "AGA": "Municipio B", "AGB": "Municipio B", "AHA": "Municipio B", "AHB": "Municipio B", "AIA": "Municipio B", "AIB": "Municipio B", "AJA": "Municipio B", "AJB": "Municipio B", "AKA": "Municipio B", "AKB": "Municipio B", "ALA": "Municipio B", "ALB": "Municipio B", "AMA": "Municipio B", "AMB": "Municipio B", "ANA": "Municipio B", "ANB": "Municipio B", "AOA": "Municipio B", "AOB": "Municipio B", "APA": "Municipio B", "APB": "Municipio B", "AQA": "Municipio B", "AQB": "Municipio B", "ARA": "Municipio B", "ARB": "Municipio B", "ASA": "Municipio B", "ASB": "Municipio B", "AVB": "Municipio B", "ATA": "Municipio B", "AVA": "Municipio B", "BEA": "Municipio B", "BEB": "Municipio B", "BFA": "Municipio B", "BFB": "Municipio B", "BJB": "Municipio B", "BKB": "Municipio B",
+            "BGA": "Municipio C", "BGB": "Municipio C", "BHA": "Municipio C", "BHB": "Municipio C", "BIA": "Municipio C", "BIB": "Municipio C", "BJA": "Municipio C", "BKA": "Municipio C", "BLA": "Municipio C", "BLB": "Municipio C", "BMA": "Municipio C", "BMB": "Municipio C", "BNA": "Municipio C", "BPA": "Municipio C", "BPB": "Municipio C", "BQA": "Municipio C", "BQB": "Municipio C",
+            "ATB": "Municipio CH", "AUA": "Municipio CH", "AUB": "Municipio CH", "AXA": "Municipio CH", "AXB": "Municipio CH", "AZA": "Municipio CH", "AZB": "Municipio CH", "BAA": "Municipio CH", "BAB": "Municipio CH",
+            "BBA": "Municipio D", "BBB": "Municipio D", "BBC": "Municipio D", "BBD": "Municipio D", "BDD": "Municipio D", "BNB": "Municipio D", "BNC": "Municipio D", "BOA": "Municipio D", "BOB": "Municipio D",
+            "BCA": "Municipio E", "BCB": "Municipio E", "BCC": "Municipio E", "BCD": "Municipio E", "BCE": "Municipio E", "BCF": "Municipio E", "BCG": "Municipio E",
+            "BDA": "Municipio F", "BDB": "Municipio F", "BDC": "Municipio F", "BDE": "Municipio F", "BDF": "Municipio F",
+            "BRA": "Municipio G", "BRB": "Municipio G", "BRC": "Municipio G", "BZA": "Municipio G", "BZB": "Municipio G", "BZC": "Municipio G"
+        };
 
         // Series de otros departamentos
         const otrosDepartamentosDict = {

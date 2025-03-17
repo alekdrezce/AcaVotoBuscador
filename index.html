@@ -56,7 +56,7 @@
             font-size: 18px;
             cursor: pointer;
             border-radius: 5px; /* Borde redondeado */
-            width: auto; /* Corregir el tamaño del botón */
+            width: 250px; /* Mismo ancho que el campo de entrada */
         }
         .resultado {
             color: #ffffff;
@@ -123,29 +123,33 @@
             const serie = document.getElementById("serieInput").value.toUpperCase();
             const municipio = municipiosDict[serie] || "Esta serie no pertenece al departamento de Montevideo";
 
-            let candidatos = "";
-            if (municipio === "Municipio A") {
-                candidatos = "Álvaro Pereyra, Juan C. Planchot";
-            } else if (municipio === "Municipio B") {
-                candidatos = "Florencia Chipollini, Patricia Soria, Chabela Zarrillo";
-            } else if (municipio === "Municipio C") {
-                candidatos = "Jorge Cabrera, Gabriela López, Damián Salvetto";
-            } else if (municipio === "Municipio Ch") {
-                candidatos = "Mónica Caffa";
-            } else if (municipio === "Municipio D") {
-                candidatos = "José Machado, Gabriel Velazco";
-            } else if (municipio === "Municipio E") {
-                candidatos = "Víctor Fomichov, Pilar Olascoaga, Pedro Pastorin";
-            } else if (municipio === "Municipio F") {
-                candidatos = "Francisco Amorena, Matilde Palermo, Jorge Sartori";
-            } else if (municipio === "Municipio G") {
-                candidatos = "Leticia de Torres";
-            }
+            if (municipio === "Esta serie no pertenece al departamento de Montevideo") {
+                document.getElementById("resultado").innerHTML = municipio;
+            } else {
+                let candidatos = "";
+                if (municipio === "Municipio A") {
+                    candidatos = "Álvaro Pereyra, Juan C. Planchot";
+                } else if (municipio === "Municipio B") {
+                    candidatos = "Florencia Chipollini, Patricia Soria, Chabela Zarrillo";
+                } else if (municipio === "Municipio C") {
+                    candidatos = "Jorge Cabrera, Gabriela López, Damián Salvetto";
+                } else if (municipio === "Municipio Ch") {
+                    candidatos = "Mónica Caffa";
+                } else if (municipio === "Municipio D") {
+                    candidatos = "José Machado, Gabriel Velazco";
+                } else if (municipio === "Municipio E") {
+                    candidatos = "Víctor Fomichov, Pilar Olascoaga, Pedro Pastorin";
+                } else if (municipio === "Municipio F") {
+                    candidatos = "Francisco Amorena, Matilde Palermo, Jorge Sartori";
+                } else if (municipio === "Municipio G") {
+                    candidatos = "Leticia de Torres";
+                }
 
-            document.getElementById("resultado").innerHTML = 
-                `Votás en el <span style="color:#ffc300">${municipio}</span><br>
-                Las candidaturas del Frente Amplio en tu municipio son las siguientes:<br>
-                - ${candidatos.split(", ").join("<br>- ")}`
+                document.getElementById("resultado").innerHTML = 
+                    `Votás en el <span style="color:#ffc300">${municipio}</span><br>
+                    Las candidaturas del Frente Amplio en tu municipio son las siguientes:<br>
+                    - ${candidatos.split(", ").join("<br>- ")}`
+            }
         }
     </script>
 

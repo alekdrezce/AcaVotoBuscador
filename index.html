@@ -392,23 +392,33 @@
     
     if (municipiosDict[serie]) {
         // 🔹 **Si la serie pertenece a Montevideo**
-        const info = municipiosDict[serie]; // Acceder correctamente al objeto {municipio, candidatos}
+        const municipio = municipiosDict[serie];
 
-        document.getElementById("resultado").innerHTML = 
-            Votás en el <span style="color:#ffc300">${info.municipio}</span><br>
+        let candidatos = "";
+        if (municipio === "Municipio A") candidatos = "Álvaro Pereyra, Juan C. Plachot";
+        else if (municipio === "Municipio B") candidatos = "Florencia Chipolini, Patricia Soria, Chabela Zarrillo";
+        else if (municipio === "Municipio C") candidatos = "Jorge Cabrera, Gabriela López, Damián Salvetto";
+        else if (municipio === "Municipio CH") candidatos = "Mónica Caffa";
+        else if (municipio === "Municipio D") candidatos = "José Machado, Gabriel Velazco";
+        else if (municipio === "Municipio E") candidatos = "Víctor Fomichov, Pilar Olascoaga, Pedro Pastorin";
+        else if (municipio === "Municipio F") candidatos = "Francisco Amorena, Matilde Palermo, Jorge Sartori";
+        else if (municipio === "Municipio G") candidatos = "Leticia de Torres";
+
+        document.getElementById("resultado").innerHTML = `
+            Votás en el <span style="color:#ffc300">${municipio}</span><br>
             Las candidaturas del Frente Amplio en tu municipio son las siguientes:<br>
-            - ${info.candidatos.split(", ").join("<br>- ")}
-        ;
+            - ${candidatos.split(", ").join("<br>- ")}
+        `;
     
     } else if (otrosDepartamentosDict[serie]) {
         // 🔹 **Si la serie pertenece a otro departamento**
         const info = otrosDepartamentosDict[serie];
 
-        document.getElementById("resultado").innerHTML = 
+        document.getElementById("resultado").innerHTML = `
             La serie ingresada corresponde al municipio <span style="color:#ffc300">${info.municipio_letra}</span> 
             del departamento <span style="color:#ffc300">${info.departamento}</span>, 
             correspondiente a <span style="color:#ffc300">${info.municipio}</span>.
-        ;
+        `;
     
     } else {
         // 🔹 **Si la serie no está en la base de datos**

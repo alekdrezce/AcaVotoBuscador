@@ -68,6 +68,27 @@
         .resultado span {
             color: #ffc300;
         }
+        .help-text {
+            font-size: 16px;
+            font-weight: 600;
+            color: #ffc300;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        .help-message {
+            font-size: 16px;
+            color: #ffffff;
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+        #helpImage {
+            max-height: 500px;
+            margin-top: 10px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
         @media (max-width: 768px) {
             .titulo {
                 font-size: 72px; /* Título más pequeño en pantallas pequeñas */
@@ -102,6 +123,13 @@
     </div>
 
     <div id="resultado" class="resultado"></div>
+
+    <div class="help-text" onclick="toggleHelp()">¿Cómo encontrar mi serie?</div>
+
+    <div class="help-message" id="helpMessage">
+        <p>Para encontrar tu serie, mirá en tu Credencial Cívica el código de tres letras, como muestra en la imagen:</p>
+        <img src="ejemplo.png" id="helpImage" alt="Ejemplo de serie en la credencial cívica">
+    </div>
 
     <div class="text-center">
         <img src="acavotologo.png" alt="AcáVoto Logo" id="logo">
@@ -150,6 +178,11 @@
                     Las candidaturas del Frente Amplio en tu municipio son las siguientes:<br>
                     - ${candidatos.split(", ").join("<br>- ")}`
             }
+        }
+
+        function toggleHelp() {
+            const helpMessage = document.getElementById("helpMessage");
+            helpMessage.style.display = helpMessage.style.display === "block" ? "none" : "block";
         }
     </script>
 

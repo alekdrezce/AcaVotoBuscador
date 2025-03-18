@@ -484,7 +484,9 @@
         };
 
         function buscarMunicipio() {
-    const serie = document.getElementById("serieInput").value.trim().toUpperCase();
+            const inputElement = document.getElementById("serieInput");
+if (!inputElement) return; // Previene errores si el input no existe
+const serie = inputElement.value.trim().toUpperCase();
     
     console.log("Buscando serie:", serie); // Depuración: Ver qué serie se está buscando
 

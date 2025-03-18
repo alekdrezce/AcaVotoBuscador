@@ -119,7 +119,7 @@
 
     <div class="header">
         <h1 class="titulo"><span>Acá</span>Voto</h1>
-        <p class="instructivo">Ingresá tu serie de credencial cívica para identificar tu municipio y conocer sus candidaturas</p>
+        <p class="instructivo">Ingresá tu serie de Credencial Cívica para identificar tu municipio y conocer sus candidaturas</p>
     </div>
 
     <div class="input-container">
@@ -428,7 +428,7 @@
     if (municipiosDict[serie]) {
         // 🔹 **Si la serie pertenece a Montevideo**
         const municipio = municipiosDict[serie].municipio;
-        const candidatos = municipiosDict[serie].candidatos;
+        const candidatos = municipiosDict[serie].candidatos || "No hay candidatos registrados para este municipio";
 
         document.getElementById("resultado").innerHTML = `
             Votás en el <span style="color:#ffc300">${municipio}</span><br>
@@ -448,9 +448,10 @@
     
     } else {
         // 🔹 **Si la serie no está en la base de datos**
-        document.getElementById("resultado").innerHTML = "Esta serie no pertenece al departamento de Montevideo ni a los minicipios registrados.";
+        document.getElementById("resultado").innerHTML = "Esta serie no pertenece al departamento de Montevideo ni a los municipios registrados.";
     }
-}
+};
+
 
 // Asegurar que se pueda buscar con Enter
 document.getElementById("serieInput").addEventListener("keydown", function(event) {

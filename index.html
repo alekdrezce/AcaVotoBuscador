@@ -423,20 +423,22 @@
         };
 
         function buscarMunicipio() {
-    const serie = document.getElementById("serieInput").value.toUpperCase().trim();
+    const serie = document.getElementById("serieInput").value.trim().toUpperCase();
     
-    if (municipiosDict[serie]) {
+    console.log("Buscando serie:", serie); // Depuración: Ver qué serie se está buscando
+
+    if (municipiosDict.hasOwnProperty(serie)) {
         // 🔹 **Si la serie pertenece a Montevideo**
-        const municipio = municipiosDict[serie].municipio;
-        const candidatos = municipiosDict[serie].candidatos || "No hay candidatos registrados para este municipio";
+        const { municipio, candidatos } = municipiosDict[serie];
+        console.log("Municipio encontrado:", municipio, "Candidatos:", candidatos); // Depuración
 
         document.getElementById("resultado").innerHTML = `
             Votás en el <span style="color:#ffc300">${municipio}</span><br>
             Las candidaturas del Frente Amplio en tu municipio son las siguientes:<br>
-            - ${candidatos.split(", ").join("<br>- ")}
+            - ${candidatos ? candidatos.split(", ").join("<br>- ") : "No hay candidatos registrados."}
         `;
-    
-    } else if (otrosDepartamentosDict[serie]) {
+
+    } else if (otrosDepartamentosDict.hasOwnProperty(serie)) {
         // 🔹 **Si la serie pertenece a otro departamento**
         const info = otrosDepartamentosDict[serie];
 
@@ -445,12 +447,14 @@
             del departamento <span style="color:#ffc300">${info.departamento}</span>, 
             correspondiente a <span style="color:#ffc300">${info.municipio}</span>.
         `;
-    
+
     } else {
         // 🔹 **Si la serie no está en la base de datos**
-        document.getElementById("resultado").innerHTML = "Esta serie no pertenece al departamento de Montevideo ni a los municipios registrados.";
+        console.log("Serie no encontrada en Montevideo ni en otros departamentos."); // Depuración
+        document.getElementById("resultado").innerHTML = 
+            "Esta serie no pertenece al departamento de Montevideo ni a los municipios registrados.";
     }
-};
+}
 
 // Asegurar que se pueda buscar con Enter
 document.getElementById("serieInput").addEventListener("keydown", function(event) {

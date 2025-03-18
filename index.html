@@ -435,7 +435,7 @@
         document.getElementById("resultado").innerHTML = `
             Votás en el <span style="color:#ffc300">${municipio}</span><br>
             Las candidaturas del Frente Amplio en tu municipio son las siguientes:<br>
-            - ${candidatos ? candidatos.split(", ").join("<br>- ") : "No hay candidatos registrados."}
+            ${candidatos ? candidatos.split(", ").map(c => `- ${c}`).join("<br>") : "No hay candidatos registrados."}
         `;
 
     } else if (otrosDepartamentosDict.hasOwnProperty(serie)) {

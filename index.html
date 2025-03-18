@@ -87,8 +87,8 @@
     <p class="instructivo">Ingresá tu serie de Credencial Cívica para conocer tu municipio y sus candidaturas</p>
 
     <div class="input-container">
-        <input type="text" id="serieInput" placeholder="Introduce tu serie" aria-label="Serie de Credencial Cívica">
-        <button onclick="buscarMunicipio()">Buscar</button>
+        <input type="text" id="serieInput" placeholder="Introduce tu serie" aria-label="Serie de Credencial Cívica" style="text-transform: uppercase;">
+        <button onclick="buscarMunicipio()">BUSCAR</button>
     </div>
 
     <div id="resultado" class="resultado"></div>
@@ -211,7 +211,7 @@
         // Series de otros departamentos
         const otrosDepartamentosDict = {
             // Canelones
-            "CMF": { municipio: "Ciudad de la Costa", departamento: "Canelones", municipio_letra: "A" },
+    "CMF": { municipio: "Ciudad de la Costa", departamento: "Canelones", municipio_letra: "A" },
     "CMI": { municipio: "Ciudad de la Costa", departamento: "Canelones", municipio_letra: "A" },
     "CMJ": { municipio: "Ciudad de la Costa", departamento: "Canelones", municipio_letra: "A" },
     "CDA": { municipio: "Las Piedras", departamento: "Canelones", municipio_letra: "B" },
@@ -443,28 +443,34 @@
         };
 
         function buscarMunicipio() {
-            const inputElement = document.getElementById("serieInput");
-            if (!inputElement) return;
+    const inputElement = document.getElementById("serieInput");
+    if (!inputElement) return;
 
-            const serie = inputElement.value.trim().toUpperCase();
-            const resultadoDiv = document.getElementById("resultado");
+    const serie = inputElement.value.trim().toUpperCase();
+    const resultadoDiv = document.getElementById("resultado");
 
-            if (!serie) {
-                resultadoDiv.innerHTML = "⚠️ Ingresa una serie para continuar.";
-                return;
-            }
+    if (!serie) {
+        resultadoDiv.innerHTML = "⚠️ Ingresa una serie para continuar.";
+        return;
+    }
 
-            if (municipiosDict.hasOwnProperty(serie)) {
-                const { municipio, candidatos } = municipiosDict[serie];
-                resultadoDiv.innerHTML = `
-                    Votás en el <span>${municipio}</span><br>
-                    Candidatos:<br>
-                    ${candidatos.split(", ").map(c => `- ${c}`).join("<br>")}
-                `;
-            } else {
-                resultadoDiv.innerHTML = "❌ Serie no encontrada.";
-            }
-        }
+    if (municipiosDict.hasOwnProperty(serie)) {
+        const { municipio, candidatos } = municipiosDict[serie];
+        resultadoDiv.innerHTML = `
+            Votás en el <span>${municipio}</span><br>
+            Candidatos:<br>
+            ${candidatos.split(", ").map(c => `- ${c}`).join("<br>")}
+        `;
+    } else if (otrosDepartamentosDict.hasOwnProperty(serie)) {
+        const { municipio, departamento, municipio_letra } = otrosDepartamentosDict[serie];
+        resultadoDiv.innerHTML = `
+            Votás en el municipio <span>${municipio}</span> (${municipio_letra})<br>
+            Departamento: <span>${departamento}</span>
+        `;
+    } else {
+        resultadoDiv.innerHTML = "❌ Serie no encontrada.";
+    }
+}
 
         function toggleHelp() {
             const helpMessage = document.getElementById("helpMessage");

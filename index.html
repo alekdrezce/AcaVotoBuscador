@@ -12,136 +12,95 @@
             font-family: 'Montserrat', sans-serif;
             margin: 0;
             padding: 0;
+            text-align: center;
+            color: white;
         }
         #logo {
-            width: 200px; /* Logo más grande */
-            margin-top: 50px;
-        }
-        .header {
-            color: #ffffff;
-            text-align: center;
-            margin-top: 50px;
+            width: 180px;
+            margin-top: 30px;
         }
         .titulo {
-            font-size: 96px; /* Título más grande */
+            font-size: 64px;
         }
         .titulo span {
-            color: #ffc300; /* Tres primeras letras en amarillo */
+            color: #ffc300;
         }
         .instructivo {
-            font-size: 24px; /* Reducir tamaño del instructivo */
-            color: #ffffff;
+            font-size: 20px;
         }
         .input-container {
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
             margin-top: 20px;
-            flex-wrap: wrap; /* Para que los elementos se acomoden mejor en pantallas pequeñas */
         }
-        .input-container input {
-            text-transform: uppercase;
-            width: 250px;
-            padding: 15px;
-            font-size: 18px;
+        .input-container input, .input-container button {
+            width: 90%;
+            max-width: 300px;
+            padding: 12px;
+            font-size: 16px;
             border: none;
-            margin-right: 10px;
-            border-radius: 5px; /* Añadido borde redondeado */
-            margin-bottom: 10px;
+            border-radius: 5px;
+            margin: 5px;
         }
         .input-container button {
             background-color: #e20613;
-            color: #ffffff;
-            padding: 15px 30px;
-            border: none;
-            font-size: 18px;
+            color: white;
             cursor: pointer;
-            border-radius: 5px; /* Borde redondeado */
-            width: 250px; /* Mismo ancho que el campo de entrada */
         }
         .resultado {
-            color: #ffffff;
-            font-size: 24px; /* Reducir tamaño del texto de resultado */
-            text-align: center;
-            margin-top: 30px;
-            padding: 0 15px; /* Padding extra para espacio en pantallas pequeñas */
+            font-size: 20px;
+            margin-top: 20px;
         }
         .resultado span {
             color: #ffc300;
         }
         .help-text {
             font-size: 16px;
-            font-weight: 600;
-            color: #ffc300;
             text-decoration: underline;
             cursor: pointer;
-            text-align: center;
-            margin-top: 20px;
+            margin-top: 15px;
         }
         .help-message {
-            font-size: 16px;
-            color: #ffffff;
             display: none;
-            text-align: center;
-            margin-top: 20px;
+            font-size: 16px;
         }
-        #helpImage {
-            max-width: 300px; /* Limitar el tamaño de la imagen a 300px de ancho */
-        }
-        #helpImage {
-            max-height: 33%; /* Ajustar a un 33% del tamaño original */
+        img {
+            max-width: 300px;
             margin-top: 10px;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
         }
         @media (max-width: 768px) {
             .titulo {
-                font-size: 72px; /* Título más pequeño en pantallas pequeñas */
-            }
-            .input-container {
-                flex-direction: column;
-                align-items: center;
-            }
-            .input-container input {
-                width: 90%; /* Hacer que el campo de entrada ocupe más espacio */
-                margin-bottom: 15px;
-            }
-            .input-container button {
-                width: 90%; /* Hacer que el botón ocupe más espacio */
+                font-size: 48px;
             }
             #logo {
-                width: 150px; /* Reducir tamaño del logo en móvil */
+                width: 140px;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <h1 class="titulo"><span>Acá</span>Voto</h1>
-        <p class="instructivo">Ingresá tu serie de Credencial Cívica para identificar tu municipio y conocer sus candidaturas</p>
-    </div>
+    <img src="acavotologo.png" alt="AcáVoto Logo" id="logo">
+
+    <h1 class="titulo"><span>Acá</span>Voto</h1>
+    <p class="instructivo">Ingresá tu serie de Credencial Cívica para conocer tu municipio y sus candidaturas</p>
 
     <div class="input-container">
-        <input type="text" id="serieInput" placeholder="Introducí tu serie" onkeydown="if(event.key === 'Enter'){buscarMunicipio()}"/>
-        <button onclick="buscarMunicipio()">Buscar</button>
+        <input type="text" id="serieInput" placeholder="introducí tu serie" aria-label="Serie de Credencial Cívica" style="text-transform: uppercase;">
+        <button onclick="buscarMunicipio()">BUSCAR</button>
     </div>
 
     <div id="resultado" class="resultado"></div>
 
     <div class="help-text" onclick="toggleHelp()">¿Cómo encontrar mi serie?</div>
-
     <div class="help-message" id="helpMessage">
-        <p>Para encontrar tu serie, mirá en tu Credencial Cívica el código de tres letras, como muestra en la imagen:</p>
-        <img src="ejemplo.png" id="helpImage" alt="Ejemplo de serie en la credencial cívica" style="max-width: 300px;">
-    </div>
-
-    <div class="text-center">
-        <img src="acavotologo.png" alt="AcáVoto Logo" id="logo">
+        <p>Busca en tu Credencial Cívica el código de tres letras como en la imagen:</p>
+        <img src="ejemplo.png" alt="Ejemplo de serie en la credencial cívica">
     </div>
 
     <script>
-        // Series de Montevideo
+// Series de Montevideo
         const municipiosDict = {
     // Municipio A
     "BSA": { municipio: "Municipio A", candidatos: "Álvaro Pereyra, Juan C. Plachot" },
@@ -167,6 +126,7 @@
     "AMA": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
     "APA": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
     "ARA": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
+    "ARB": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
     "ASA": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
     "ATA": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
     "AVA": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
@@ -174,8 +134,8 @@
     "BFA": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
     "BIB": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
     "BKB": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
+
     "AAB": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
-    "ARB": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
     "ABA": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
     "ABB": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
     "ACB": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
@@ -214,7 +174,7 @@
     "BAB": { municipio: "Municipio CH", candidatos: "Mónica Caffa" },
 
     // Municipio D
-    "8BA": { municipio: "Municipio D", candidatos: "José Machado, Gabriel Velazco" },
+    "BBA": { municipio: "Municipio D", candidatos: "José Machado, Gabriel Velazco" },
     "BBB": { municipio: "Municipio D", candidatos: "José Machado, Gabriel Velazco" },
     "BBC": { municipio: "Municipio D", candidatos: "José Machado, Gabriel Velazco" },
     "BBD": { municipio: "Municipio D", candidatos: "José Machado, Gabriel Velazco" },
@@ -252,7 +212,7 @@
         // Series de otros departamentos
         const otrosDepartamentosDict = {
             // Canelones
-            "CMF": { municipio: "Ciudad de la Costa", departamento: "Canelones", municipio_letra: "A" },
+    "CMF": { municipio: "Ciudad de la Costa", departamento: "Canelones", municipio_letra: "A" },
     "CMI": { municipio: "Ciudad de la Costa", departamento: "Canelones", municipio_letra: "A" },
     "CMJ": { municipio: "Ciudad de la Costa", departamento: "Canelones", municipio_letra: "A" },
     "CDA": { municipio: "Las Piedras", departamento: "Canelones", municipio_letra: "B" },
@@ -385,14 +345,10 @@
     "HDB": { municipio: "Minas de Corrales", departamento: "Rivera", municipio_letra: "C" },
 
     // Tacuarembó
-    "TFD": { municipio: "Paso de los Toros", departamento: "Tacuarembó", municipio_letra: "A" },
-    "TED": { municipio: "San Gregorio de polanco", departamento: "Tacuarembó", municipio_letra: "B" },
-    "TBE": { municipio: "Ansina", departamento: "Tacuarembó", municipio_letra: "C" },
-    "TGA": { municipio: "Villa Caraguatá", departamento: "Tacuarembó", municipio_letra: "CH" },
-    "TGB": { municipio: "Villa Caraguatá", departamento: "Tacuarembó", municipio_letra: "CH" },
-    "TGC": { municipio: "Villa Caraguatá", departamento: "Tacuarembó", municipio_letra: "CH" },
-    "TGD": { municipio: "Villa Caraguatá", departamento: "Tacuarembó", municipio_letra: "CH" },
-    "TGE": { municipio: "Villa Caraguatá", departamento: "Tacuarembó", municipio_letra: "CH" },
+    "HCC": { municipio: "Tranqueras", departamento: "Tacuarembó", municipio_letra: "A" },
+    "HCD": { municipio: "Tranqueras", departamento: "Tacuarembó", municipio_letra: "A" },
+    "HCG": { municipio: "Tranqueras", departamento: "Tacuarembó", municipio_letra: "A" },
+    "HFG": { municipio: "Vichadero", departamento: "Tacuarembó", municipio_letra: "B" },
 
     // Durazno
     "RDC": { municipio: "Sarandí del Yí", departamento: "Durazno", municipio_letra: "A" },
@@ -488,51 +444,43 @@
         };
 
         function buscarMunicipio() {
-            const inputElement = document.getElementById("serieInput");
-if (!inputElement) return; // Previene errores si el input no existe
-const serie = inputElement.value.trim().toUpperCase();
-    
-    console.log("Buscando serie:", serie); // Depuración: Ver qué serie se está buscando
+    const inputElement = document.getElementById("serieInput");
+    if (!inputElement) return;
+
+    const serie = inputElement.value.trim().toUpperCase();
+    const resultadoDiv = document.getElementById("resultado");
+
+    if (!serie) {
+        resultadoDiv.innerHTML = "⚠️ Ingresa una serie para continuar.";
+        return;
+    }
 
     if (municipiosDict.hasOwnProperty(serie)) {
-        // 🔹 **Si la serie pertenece a Montevideo**
         const { municipio, candidatos } = municipiosDict[serie];
-        console.log("Municipio encontrado:", municipio, "Candidatos:", candidatos); // Depuración
-
-        document.getElementById("resultado").innerHTML = `
-            Votás en el <span style="color:#ffc300">${municipio}</span><br>
-            Las candidaturas del Frente Amplio en tu municipio son las siguientes:<br>
-            ${candidatos ? candidatos.split(", ").map(c => `- ${c}`).join("<br>") : "No hay candidatos registrados."}
+        resultadoDiv.innerHTML = `
+            Votás en el <span>${municipio}</span><br>
+            Candidatos:<br>
+            ${candidatos.split(", ").map(c => `- ${c}`).join("<br>")}
         `;
-
     } else if (otrosDepartamentosDict.hasOwnProperty(serie)) {
-        // 🔹 **Si la serie pertenece a otro departamento**
-        const info = otrosDepartamentosDict[serie];
-
-        document.getElementById("resultado").innerHTML = `
-            La serie ingresada corresponde al municipio <span style="color:#ffc300">${info.municipio_letra}</span> 
-            del departamento <span style="color:#ffc300">${info.departamento}</span>, 
-            correspondiente a <span style="color:#ffc300">${info.municipio}</span>.
+        const { municipio, departamento, municipio_letra } = otrosDepartamentosDict[serie];
+        resultadoDiv.innerHTML = `
+            Votás en el municipio <span>${municipio}</span> (${municipio_letra})<br>
+            Departamento: <span>${departamento}</span>
         `;
-
     } else {
-        // 🔹 **Si la serie no está en la base de datos**
-        console.log("Serie no encontrada en Montevideo ni en otros departamentos."); // Depuración
-        document.getElementById("resultado").innerHTML = 
-            "Esta serie no pertenece al departamento de Montevideo ni a los municipios registrados.";
+        resultadoDiv.innerHTML = "❌ Serie no encontrada.";
     }
 }
 
-// Asegurar que se pueda buscar con Enter
-document.getElementById("serieInput").addEventListener("keydown", function(event) {
-    if (event.key === 'Enter') buscarMunicipio();
-});
+        function toggleHelp() {
+            const helpMessage = document.getElementById("helpMessage");
+            helpMessage.style.display = helpMessage.style.display === "block" ? "none" : "block";
+        }
 
-// Función para mostrar/ocultar ayuda
-function toggleHelp() {
-    const helpMessage = document.getElementById("helpMessage");
-    helpMessage.style.display = helpMessage.style.display === "block" ? "none" : "block";
-}
+        document.getElementById("serieInput").addEventListener("keydown", function(event) {
+            if (event.key === 'Enter') buscarMunicipio();
+        });
     </script>
 
 </body>

@@ -8,30 +8,15 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-    background-image: url('fondoacavoto.svg'); /* Ruta al archivo SVG */
-    background-size: cover; /* Ajusta el fondo para que cubra toda la pantalla */
-    background-position: center center; /* Centra el fondo */
-    background-repeat: no-repeat; /* Evita que el fondo se repita */
-    background-attachment: fixed; /* Hace que el fondo no se mueva al hacer scroll */
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    color: white;
-}
-
-/* Ajustes para pantallas pequeñas (móviles) */
-@media (max-width: 768px) {
-    body {
-        background-image: url('fondoacavoto.svg'); /* Aseguramos que el fondo se cargue correctamente */
-        background-size: cover; /* Mantener fondo cubriendo toda la pantalla */
-        background-position: center center; /* Centra el fondo */
-        background-repeat: no-repeat; /* No repetir fondo */
-        background-attachment: fixed; /* Fijo en la pantalla */
-    }
-}
+            background-color: #004f9e;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            color: white;
+        }
         #logo {
-            width: 600px;
+            width: 300px;
             margin-top: 30px;
         }
         .titulo {
@@ -42,9 +27,6 @@
         }
         .instructivo {
             font-size: 20px;
-        }
-        .instructivo span {
-            color: #ffc300;
         }
         .input-container {
             display: flex;
@@ -85,7 +67,7 @@
         }
         img {
             max-width: 300px;
-            margin-top: 30px;
+            margin-top: 10px;
         }
         @media (max-width: 768px) {
             .titulo {
@@ -101,6 +83,7 @@
 
     <img src="acavotologo.png" alt="AcáVoto Logo" id="logo">
 
+    <!-- <h1 class="titulo"><span>Acá</span>Voto</h1> -->
     <p class="instructivo">Ingresá tu serie de Credencial Cívica para conocer tu municipio y sus candidaturas</p>
 
     <div class="input-container">
@@ -120,133 +103,135 @@
 // Series de Montevideo
         const municipiosDict = {
     // Municipio A
-"BSA": { municipio: "Municipio A", candidatos: "Álvaro Pereyra (lista 53-A), Juan Carlos Plachot (lista 79-A)" },
-"BTA": { municipio: "Municipio A", candidatos: "Álvaro Pereyra (lista 53-A), Juan Carlos Plachot (lista 79-A)" },
-"BTB": { municipio: "Municipio A", candidatos: "Álvaro Pereyra (lista 53-A), Juan Carlos Plachot (lista 79-A)" },
-"BTC": { municipio: "Municipio A", candidatos: "Álvaro Pereyra (lista 53-A), Juan Carlos Plachot (lista 79-A)" },
-"BTD": { municipio: "Municipio A", candidatos: "Álvaro Pereyra (lista 53-A), Juan Carlos Plachot (lista 79-A)" },
-"BUA": { municipio: "Municipio A", candidatos: "Álvaro Pereyra (lista 53-A), Juan Carlos Plachot (lista 79-A)" },
-"BUB": { municipio: "Municipio A", candidatos: "Álvaro Pereyra (lista 53-A), Juan Carlos Plachot (lista 79-A)" },
-"BVA": { municipio: "Municipio A", candidatos: "Álvaro Pereyra (lista 53-A), Juan Carlos Plachot (lista 79-A)" },
-"BVB": { municipio: "Municipio A", candidatos: "Álvaro Pereyra (lista 53-A), Juan Carlos Plachot (lista 79-A)" },
-"BVC": { municipio: "Municipio A", candidatos: "Álvaro Pereyra (lista 53-A), Juan Carlos Plachot (lista 79-A)" },
-"BXA": { municipio: "Municipio A", candidatos: "Álvaro Pereyra (lista 53-A), Juan Carlos Plachot (lista 79-A)" },
-"BXB": { municipio: "Municipio A", candidatos: "Álvaro Pereyra (lista 53-A), Juan Carlos Plachot (lista 79-A)" },
-"BXC": { municipio: "Municipio A", candidatos: "Álvaro Pereyra (lista 53-A), Juan Carlos Plachot (lista 79-A)" },
-"BSB": { municipio: "Municipio A", candidatos: "Álvaro Pereyra (lista 53-A), Juan Carlos Plachot (lista 79-A)" },
+    "BSA": { municipio: "Municipio A", candidatos: "Álvaro Pereyra, Juan C. Plachot" },
+    "BTA": { municipio: "Municipio A", candidatos: "Álvaro Pereyra, Juan C. Plachot" },
+    "BTB": { municipio: "Municipio A", candidatos: "Álvaro Pereyra, Juan C. Plachot" },
+    "BTC": { municipio: "Municipio A", candidatos: "Álvaro Pereyra, Juan C. Plachot" },
+    "BTD": { municipio: "Municipio A", candidatos: "Álvaro Pereyra, Juan C. Plachot" },
+    "BUA": { municipio: "Municipio A", candidatos: "Álvaro Pereyra, Juan C. Plachot" },
+    "BUB": { municipio: "Municipio A", candidatos: "Álvaro Pereyra, Juan C. Plachot" },
+    "BVA": { municipio: "Municipio A", candidatos: "Álvaro Pereyra, Juan C. Plachot" },
+    "BVB": { municipio: "Municipio A", candidatos: "Álvaro Pereyra, Juan C. Plachot" },
+    "BVC": { municipio: "Municipio A", candidatos: "Álvaro Pereyra, Juan C. Plachot" },
+    "BXA": { municipio: "Municipio A", candidatos: "Álvaro Pereyra, Juan C. Plachot" },
+    "BXB": { municipio: "Municipio A", candidatos: "Álvaro Pereyra, Juan C. Plachot" },
+    "BXC": { municipio: "Municipio A", candidatos: "Álvaro Pereyra, Juan C. Plachot" },
+    "BSB": { municipio: "Municipio A", candidatos: "Álvaro Pereyra, Juan C. Plachot" },
 
     // Municipio B
-"AAA": { municipio: "Municipio B", candidatos: "Florencia Chipolini (lista 96-B), Patricia Soria (lista 79-B), Chabela Zarrillo (lista 53-B)" },
-"ACA": { municipio: "Municipio B", candidatos: "Florencia Chipolini (lista 96-B), Patricia Soria (lista 79-B), Chabela Zarrillo (lista 53-B)" },
-"AIA": { municipio: "Municipio B", candidatos: "Florencia Chipolini (lista 96-B), Patricia Soria (lista 79-B), Chabela Zarrillo (lista 53-B)" },
-"AKA": { municipio: "Municipio B", candidatos: "Florencia Chipolini (lista 96-B), Patricia Soria (lista 79-B), Chabela Zarrillo (lista 53-B)" },
-"AMA": { municipio: "Municipio B", candidatos: "Florencia Chipolini (lista 96-B), Patricia Soria (lista 79-B), Chabela Zarrillo (lista 53-B)" },
-"APA": { municipio: "Municipio B", candidatos: "Florencia Chipolini (lista 96-B), Patricia Soria (lista 79-B), Chabela Zarrillo (lista 53-B)" },
-"ARA": { municipio: "Municipio B", candidatos: "Florencia Chipolini (lista 96-B), Patricia Soria (lista 79-B), Chabela Zarrillo (lista 53-B)" },
-"ARB": { municipio: "Municipio B", candidatos: "Florencia Chipolini (lista 96-B), Patricia Soria (lista 79-B), Chabela Zarrillo (lista 53-B)" },
-"ASA": { municipio: "Municipio B", candidatos: "Florencia Chipolini (lista 96-B), Patricia Soria (lista 79-B), Chabela Zarrillo (lista 53-B)" },
-"ATA": { municipio: "Municipio B", candidatos: "Florencia Chipolini (lista 96-B), Patricia Soria (lista 79-B), Chabela Zarrillo (lista 53-B)" },
-"AVA": { municipio: "Municipio B", candidatos: "Florencia Chipolini (lista 96-B), Patricia Soria (lista 79-B), Chabela Zarrillo (lista 53-B)" },
-"BEA": { municipio: "Municipio B", candidatos: "Florencia Chipolini (lista 96-B), Patricia Soria (lista 79-B), Chabela Zarrillo (lista 53-B)" },
-"BFA": { municipio: "Municipio B", candidatos: "Florencia Chipolini (lista 96-B), Patricia Soria (lista 79-B), Chabela Zarrillo (lista 53-B)" },
-"BJB": { municipio: "Municipio B", candidatos: "Florencia Chipolini (lista 96-B), Patricia Soria (lista 79-B), Chabela Zarrillo (lista 53-B)" },
-"BKB": { municipio: "Municipio B", candidatos: "Florencia Chipolini (lista 96-B), Patricia Soria (lista 79-B), Chabela Zarrillo (lista 53-B)" },
-"AAB": { municipio: "Municipio B", candidatos: "Florencia Chipolini (lista 96-B), Patricia Soria (lista 79-B), Chabela Zarrillo (lista 53-B)" },
-"ABA": { municipio: "Municipio B", candidatos: "Florencia Chipolini (lista 96-B), Patricia Soria (lista 79-B), Chabela Zarrillo (lista 53-B)" },
-"ABB": { municipio: "Municipio B", candidatos: "Florencia Chipolini (lista 96-B), Patricia Soria (lista 79-B), Chabela Zarrillo (lista 53-B)" },
-"ACB": { municipio: "Municipio B", candidatos: "Florencia Chipolini (lista 96-B), Patricia Soria (lista 79-B), Chabela Zarrillo (lista 53-B)" },
-"ADA": { municipio: "Municipio B", candidatos: "Florencia Chipolini (lista 96-B), Patricia Soria (lista 79-B), Chabela Zarrillo (lista 53-B)" },
-"ADB": { municipio: "Municipio B", candidatos: "Florencia Chipolini (lista 96-B), Patricia Soria (lista 79-B), Chabela Zarrillo (lista 53-B)" },
-"AEA": { municipio: "Municipio B", candidatos: "Florencia Chipolini (lista 96-B), Patricia Soria (lista 79-B), Chabela Zarrillo (lista 53-B)" },
-"AEB": { municipio: "Municipio B", candidatos: "Florencia Chipolini (lista 96-B), Patricia Soria (lista 79-B), Chabela Zarrillo (lista 53-B)" },
-"AFA": { municipio: "Municipio B", candidatos: "Florencia Chipolini (lista 96-B), Patricia Soria (lista 79-B), Chabela Zarrillo (lista 53-B)" },
-"AGA": { municipio: "Municipio B", candidatos: "Florencia Chipolini (lista 96-B), Patricia Soria (lista 79-B), Chabela Zarrillo (lista 53-B)" },
-"AGB": { municipio: "Municipio B", candidatos: "Florencia Chipolini (lista 96-B), Patricia Soria (lista 79-B), Chabela Zarrillo (lista 53-B)" },
-"AHA": { municipio: "Municipio B", candidatos: "Florencia Chipolini (lista 96-B), Patricia Soria (lista 79-B), Chabela Zarrillo (lista 53-B)" },
-"AHB": { municipio: "Municipio B", candidatos: "Florencia Chipolini (lista 96-B), Patricia Soria (lista 79-B), Chabela Zarrillo (lista 53-B)" },
-"AIB": { municipio: "Municipio B", candidatos: "Florencia Chipolini (lista 96-B), Patricia Soria (lista 79-B), Chabela Zarrillo (lista 53-B)" },
-"AJA": { municipio: "Municipio B", candidatos: "Florencia Chipolini (lista 96-B), Patricia Soria (lista 79-B), Chabela Zarrillo (lista 53-B)" },
-"AJB": { municipio: "Municipio B", candidatos: "Florencia Chipolini (lista 96-B), Patricia Soria (lista 79-B), Chabela Zarrillo (lista 53-B)" },
-"AKB": { municipio: "Municipio B", candidatos: "Florencia Chipolini (lista 96-B), Patricia Soria (lista 79-B), Chabela Zarrillo (lista 53-B)" },
-"ALA": { municipio: "Municipio B", candidatos: "Florencia Chipolini (lista 96-B), Patricia Soria (lista 79-B), Chabela Zarrillo (lista 53-B)" },
-"ALB": { municipio: "Municipio B", candidatos: "Florencia Chipolini (lista 96-B), Patricia Soria (lista 79-B), Chabela Zarrillo (lista 53-B)" },
-"AMB": { municipio: "Municipio B", candidatos: "Florencia Chipolini (lista 96-B), Patricia Soria (lista 79-B), Chabela Zarrillo (lista 53-B)" },
-"ANA": { municipio: "Municipio B", candidatos: "Florencia Chipolini (lista 96-B), Patricia Soria (lista 79-B), Chabela Zarrillo (lista 53-B)" },
-"ANB": { municipio: "Municipio B", candidatos: "Florencia Chipolini (lista 96-B), Patricia Soria (lista 79-B), Chabela Zarrillo (lista 53-B)" },
-"AOA": { municipio: "Municipio B", candidatos: "Florencia Chipolini (lista 96-B), Patricia Soria (lista 79-B), Chabela Zarrillo (lista 53-B)" },
-"AOB": { municipio: "Municipio B", candidatos: "Florencia Chipolini (lista 96-B), Patricia Soria (lista 79-B), Chabela Zarrillo (lista 53-B)" },
-"APB": { municipio: "Municipio B", candidatos: "Florencia Chipolini (lista 96-B), Patricia Soria (lista 79-B), Chabela Zarrillo (lista 53-B)" },
-"AQA": { municipio: "Municipio B", candidatos: "Florencia Chipolini (lista 96-B), Patricia Soria (lista 79-B), Chabela Zarrillo (lista 53-B)" },
-"AQB": { municipio: "Municipio B", candidatos: "Florencia Chipolini (lista 96-B), Patricia Soria (lista 79-B), Chabela Zarrillo (lista 53-B)" },
-"ASB": { municipio: "Municipio B", candidatos: "Florencia Chipolini (lista 96-B), Patricia Soria (lista 79-B), Chabela Zarrillo (lista 53-B)" },
-"AVB": { municipio: "Municipio B", candidatos: "Florencia Chipolini (lista 96-B), Patricia Soria (lista 79-B), Chabela Zarrillo (lista 53-B)" },
-"BEB": { municipio: "Municipio B", candidatos: "Florencia Chipolini (lista 96-B), Patricia Soria (lista 79-B), Chabela Zarrillo (lista 53-B)" },
-"BFB": { municipio: "Municipio B", candidatos: "Florencia Chipolini (lista 96-B), Patricia Soria (lista 79-B), Chabela Zarrillo (lista 53-B)" },
+    "AAA": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
+    "ACA": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
+    "AIA": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
+    "AKA": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
+    "AMA": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
+    "APA": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
+    "ARA": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
+    "ARB": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
+    "ASA": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
+    "ATA": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
+    "AVA": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
+    "BEA": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
+    "BFA": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
+    "BJB": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
+    "BKB": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
+    "AAB": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
+    "ABA": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
+    "ABB": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
+    "ACB": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
+    "ADA": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
+    "ADB": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
+    "AEA": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
+    "AEB": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
+    "AFA": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
+    "ABB": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
+    "AGA": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
+    "AGB": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
+    "AHA": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
+    "AHB": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
+    "AIB": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
+    "AJA": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
+    "AJB": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
+    "AKB": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
+    "ALA": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
+    "ALB": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
+    "AMB": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
+    "ANA": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
+    "ANB": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
+    "AOA": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
+    "AOB": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
+    "APB": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
+    "AQA": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
+    "AQB": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
+    "ARB": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
+    "ASB": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
+    "AVB": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
+    "BEB": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
+    "BFB": { municipio: "Municipio B", candidatos: "Florencia Chipolini, Patricia Soria, Chabela Zarrillo" },
 
     // Municipio C
-"BGA": { municipio: "Municipio C", candidatos: "Jorge Cabrera (lista 53-C), Gabriela López (lista 79-C), Damián Salvetto (lista 96-C)" },
-"BIA": { municipio: "Municipio C", candidatos: "Jorge Cabrera (lista 53-C), Gabriela López (lista 79-C), Damián Salvetto (lista 96-C)" },
-"BKA": { municipio: "Municipio C", candidatos: "Jorge Cabrera (lista 53-C), Gabriela López (lista 79-C), Damián Salvetto (lista 96-C)" },
-"BLA": { municipio: "Municipio C", candidatos: "Jorge Cabrera (lista 53-C), Gabriela López (lista 79-C), Damián Salvetto (lista 96-C)" },
-"BLB": { municipio: "Municipio C", candidatos: "Jorge Cabrera (lista 53-C), Gabriela López (lista 79-C), Damián Salvetto (lista 96-C)" },
-"BMA": { municipio: "Municipio C", candidatos: "Jorge Cabrera (lista 53-C), Gabriela López (lista 79-C), Damián Salvetto (lista 96-C)" },
-"BMB": { municipio: "Municipio C", candidatos: "Jorge Cabrera (lista 53-C), Gabriela López (lista 79-C), Damián Salvetto (lista 96-C)" },
-"BNA": { municipio: "Municipio C", candidatos: "Jorge Cabrera (lista 53-C), Gabriela López (lista 79-C), Damián Salvetto (lista 96-C)" },
-"BPA": { municipio: "Municipio C", candidatos: "Jorge Cabrera (lista 53-C), Gabriela López (lista 79-C), Damián Salvetto (lista 96-C)" },
-"BPB": { municipio: "Municipio C", candidatos: "Jorge Cabrera (lista 53-C), Gabriela López (lista 79-C), Damián Salvetto (lista 96-C)" },
-"BQA": { municipio: "Municipio C", candidatos: "Jorge Cabrera (lista 53-C), Gabriela López (lista 79-C), Damián Salvetto (lista 96-C)" },
-"BQB": { municipio: "Municipio C", candidatos: "Jorge Cabrera (lista 53-C), Gabriela López (lista 79-C), Damián Salvetto (lista 96-C)" },
-"BGB": { municipio: "Municipio C", candidatos: "Jorge Cabrera (lista 53-C), Gabriela López (lista 79-C), Damián Salvetto (lista 96-C)" },
-"BHA": { municipio: "Municipio C", candidatos: "Jorge Cabrera (lista 53-C), Gabriela López (lista 79-C), Damián Salvetto (lista 96-C)" },
-"BHB": { municipio: "Municipio C", candidatos: "Jorge Cabrera (lista 53-C), Gabriela López (lista 79-C), Damián Salvetto (lista 96-C)" },
-"BIB": { municipio: "Municipio C", candidatos: "Jorge Cabrera (lista 53-C), Gabriela López (lista 79-C), Damián Salvetto (lista 96-C)" },
-"BJA": { municipio: "Municipio C", candidatos: "Jorge Cabrera (lista 53-C), Gabriela López (lista 79-C), Damián Salvetto (lista 96-C)" },
+    "BGA": { municipio: "Municipio C", candidatos: "Jorge Cabrera, Gabriela López, Damián Salvetto" },
+    "BIA": { municipio: "Municipio C", candidatos: "Jorge Cabrera, Gabriela López, Damián Salvetto" },
+    "BKA": { municipio: "Municipio C", candidatos: "Jorge Cabrera, Gabriela López, Damián Salvetto" },
+    "BLA": { municipio: "Municipio C", candidatos: "Jorge Cabrera, Gabriela López, Damián Salvetto" },
+    "BLB": { municipio: "Municipio C", candidatos: "Jorge Cabrera, Gabriela López, Damián Salvetto" },
+    "BMA": { municipio: "Municipio C", candidatos: "Jorge Cabrera, Gabriela López, Damián Salvetto" },
+    "BMB": { municipio: "Municipio C", candidatos: "Jorge Cabrera, Gabriela López, Damián Salvetto" },
+    "BNA": { municipio: "Municipio C", candidatos: "Jorge Cabrera, Gabriela López, Damián Salvetto" },
+    "BPA": { municipio: "Municipio C", candidatos: "Jorge Cabrera, Gabriela López, Damián Salvetto" },
+    "BPB": { municipio: "Municipio C", candidatos: "Jorge Cabrera, Gabriela López, Damián Salvetto" },
+    "BQA": { municipio: "Municipio C", candidatos: "Jorge Cabrera, Gabriela López, Damián Salvetto" },
+    "BQB": { municipio: "Municipio C", candidatos: "Jorge Cabrera, Gabriela López, Damián Salvetto" },
+    "BGB": { municipio: "Municipio C", candidatos: "Jorge Cabrera, Gabriela López, Damián Salvetto" },
+    "BHA": { municipio: "Municipio C", candidatos: "Jorge Cabrera, Gabriela López, Damián Salvetto" },
+    "BIB": { municipio: "Municipio C", candidatos: "Jorge Cabrera, Gabriela López, Damián Salvetto" },
+    "BHB": { municipio: "Municipio C", candidatos: "Jorge Cabrera, Gabriela López, Damián Salvetto" },
+    "BJA": { municipio: "Municipio C", candidatos: "Jorge Cabrera, Gabriela López, Damián Salvetto" },
 
     // Municipio CH
-"ATB": { municipio: "Municipio CH", candidatos: "Mónica Caffa (lista 79-CH)" },
-"AUA": { municipio: "Municipio CH", candidatos: "Mónica Caffa (lista 79-CH)" },
-"AUB": { municipio: "Municipio CH", candidatos: "Mónica Caffa (lista 79-CH)" },
-"AXA": { municipio: "Municipio CH", candidatos: "Mónica Caffa (lista 79-CH)" },
-"AXB": { municipio: "Municipio CH", candidatos: "Mónica Caffa (lista 79-CH)" },
-"AZA": { municipio: "Municipio CH", candidatos: "Mónica Caffa (lista 79-CH)" },
-"AZB": { municipio: "Municipio CH", candidatos: "Mónica Caffa (lista 79-CH)" },
-"BAA": { municipio: "Municipio CH", candidatos: "Mónica Caffa (lista 79-CH)" },
-"BAB": { municipio: "Municipio CH", candidatos: "Mónica Caffa (lista 79-CH)" },
+    "ATB": { municipio: "Municipio CH", candidatos: "Mónica Caffa" },
+    "AUA": { municipio: "Municipio CH", candidatos: "Mónica Caffa" },
+    "AUB": { municipio: "Municipio CH", candidatos: "Mónica Caffa" },
+    "AXA": { municipio: "Municipio CH", candidatos: "Mónica Caffa" },
+    "AXB": { municipio: "Municipio CH", candidatos: "Mónica Caffa" },
+    "AZA": { municipio: "Municipio CH", candidatos: "Mónica Caffa" },
+    "AZB": { municipio: "Municipio CH", candidatos: "Mónica Caffa" },
+    "BAA": { municipio: "Municipio CH", candidatos: "Mónica Caffa" },
+    "BAB": { municipio: "Municipio CH", candidatos: "Mónica Caffa" },
 
     // Municipio D
-"BBA": { municipio: "Municipio D", candidatos: "Gabriel Velazco (lista 53-D), José Machado (lista 96-D)" },
-"BBB": { municipio: "Municipio D", candidatos: "Gabriel Velazco (lista 53-D), José Machado (lista 96-D)" },
-"BBC": { municipio: "Municipio D", candidatos: "Gabriel Velazco (lista 53-D), José Machado (lista 96-D)" },
-"BBD": { municipio: "Municipio D", candidatos: "Gabriel Velazco (lista 53-D), José Machado (lista 96-D)" },
-"BDD": { municipio: "Municipio D", candidatos: "Gabriel Velazco (lista 53-D), José Machado (lista 96-D)" },
-"BNB": { municipio: "Municipio D", candidatos: "Gabriel Velazco (lista 53-D), José Machado (lista 96-D)" },
-"BNC": { municipio: "Municipio D", candidatos: "Gabriel Velazco (lista 53-D), José Machado (lista 96-D)" },
-"BOA": { municipio: "Municipio D", candidatos: "Gabriel Velazco (lista 53-D), José Machado (lista 96-D)" },
-"BOB": { municipio: "Municipio D", candidatos: "Gabriel Velazco (lista 53-D), José Machado (lista 96-D)" },
+    "BBA": { municipio: "Municipio D", candidatos: "José Machado, Gabriel Velazco" },
+    "BBB": { municipio: "Municipio D", candidatos: "José Machado, Gabriel Velazco" },
+    "BBC": { municipio: "Municipio D", candidatos: "José Machado, Gabriel Velazco" },
+    "BBD": { municipio: "Municipio D", candidatos: "José Machado, Gabriel Velazco" },
+    "BDD": { municipio: "Municipio D", candidatos: "José Machado, Gabriel Velazco" },
+    "BNB": { municipio: "Municipio D", candidatos: "José Machado, Gabriel Velazco" },
+    "BNC": { municipio: "Municipio D", candidatos: "José Machado, Gabriel Velazco" },
+    "BOA": { municipio: "Municipio D", candidatos: "José Machado, Gabriel Velazco" },
+    "BOB": { municipio: "Municipio D", candidatos: "José Machado, Gabriel Velazco" },
 
     // Municipio E
-"BCA": { municipio: "Municipio E", candidatos: "Víctor Fomichov (lista 53-E), Pilar Olascoaga (lista 96-E), Pedro Pastorin (lista 79-E)" },
-"BCB": { municipio: "Municipio E", candidatos: "Víctor Fomichov (lista 53-E), Pilar Olascoaga (lista 96-E), Pedro Pastorin (lista 79-E)" },
-"BCC": { municipio: "Municipio E", candidatos: "Víctor Fomichov (lista 53-E), Pilar Olascoaga (lista 96-E), Pedro Pastorin (lista 79-E)" },
-"BCD": { municipio: "Municipio E", candidatos: "Víctor Fomichov (lista 53-E), Pilar Olascoaga (lista 96-E), Pedro Pastorin (lista 79-E)" },
-"BCE": { municipio: "Municipio E", candidatos: "Víctor Fomichov (lista 53-E), Pilar Olascoaga (lista 96-E), Pedro Pastorin (lista 79-E)" },
-"BCF": { municipio: "Municipio E", candidatos: "Víctor Fomichov (lista 53-E), Pilar Olascoaga (lista 96-E), Pedro Pastorin (lista 79-E)" },
-"BCG": { municipio: "Municipio E", candidatos: "Víctor Fomichov (lista 53-E), Pilar Olascoaga (lista 96-E), Pedro Pastorin (lista 79-E)" },
+    "BCA": { municipio: "Municipio E", candidatos: "Víctor Fomichov, Pilar Olascoaga, Pedro Pastorin" },
+    "BCB": { municipio: "Municipio E", candidatos: "Víctor Fomichov, Pilar Olascoaga, Pedro Pastorin" },
+    "BCC": { municipio: "Municipio E", candidatos: "Víctor Fomichov, Pilar Olascoaga, Pedro Pastorin" },
+    "BCD": { municipio: "Municipio E", candidatos: "Víctor Fomichov, Pilar Olascoaga, Pedro Pastorin" },
+    "BCE": { municipio: "Municipio E", candidatos: "Víctor Fomichov, Pilar Olascoaga, Pedro Pastorin" },
+    "BCF": { municipio: "Municipio E", candidatos: "Víctor Fomichov, Pilar Olascoaga, Pedro Pastorin" },
+    "BCG": { municipio: "Municipio E", candidatos: "Víctor Fomichov, Pilar Olascoaga, Pedro Pastorin" },
 
     // Municipio F
-"BDA": { municipio: "Municipio F", candidatos: "Jorge Sartori (lista 53-F), Matilde Palermo (lista 96-F), Francisco Amorena (lista 79-F)" },
-"BDB": { municipio: "Municipio F", candidatos: "Jorge Sartori (lista 53-F), Matilde Palermo (lista 96-F), Francisco Amorena (lista 79-F)" },
-"BDC": { municipio: "Municipio F", candidatos: "Jorge Sartori (lista 53-F), Matilde Palermo (lista 96-F), Francisco Amorena (lista 79-F)" },
-"BDE": { municipio: "Municipio F", candidatos: "Jorge Sartori (lista 53-F), Matilde Palermo (lista 96-F), Francisco Amorena (lista 79-F)" },
-"BDF": { municipio: "Municipio F", candidatos: "Jorge Sartori (lista 53-F), Matilde Palermo (lista 96-F), Francisco Amorena (lista 79-F)" },
+    "BDA": { municipio: "Municipio F", candidatos: "Francisco Amorena, Matilde Palermo, Jorge Sartori" },
+    "BDB": { municipio: "Municipio F", candidatos: "Francisco Amorena, Matilde Palermo, Jorge Sartori" },
+    "BDC": { municipio: "Municipio F", candidatos: "Francisco Amorena, Matilde Palermo, Jorge Sartori" },
+    "BDE": { municipio: "Municipio F", candidatos: "Francisco Amorena, Matilde Palermo, Jorge Sartori" },
+    "BDF": { municipio: "Municipio F", candidatos: "Francisco Amorena, Matilde Palermo, Jorge Sartori" },
 
     // Municipio G
-"BRA": { municipio: "Municipio G", candidatos: "Leticia de Torres (lista 79-G)" },
-"BRB": { municipio: "Municipio G", candidatos: "Leticia de Torres (lista 79-G)" },
-"BRC": { municipio: "Municipio G", candidatos: "Leticia de Torres (lista 79-G)" },
-"BZA": { municipio: "Municipio G", candidatos: "Leticia de Torres (lista 79-G)" },
-"BZB": { municipio: "Municipio G", candidatos: "Leticia de Torres (lista 79-G)" },
-"BZC": { municipio: "Municipio G", candidatos: "Leticia de Torres (lista 79-G)" }
+    "BRA": { municipio: "Municipio G", candidatos: "Leticia de Torres" },
+    "BRB": { municipio: "Municipio G", candidatos: "Leticia de Torres" },
+    "BRC": { municipio: "Municipio G", candidatos: "Leticia de Torres" },
+    "BZA": { municipio: "Municipio G", candidatos: "Leticia de Torres" },
+    "BZB": { municipio: "Municipio G", candidatos: "Leticia de Torres" },
+    "BZC": { municipio: "Municipio G", candidatos: "Leticia de Torres" }
 };
 
         // Series de otros departamentos
@@ -525,66 +510,44 @@
         };
 
         function buscarMunicipio() {
-        const inputElement = document.getElementById("serieInput");
-        if (!inputElement) return;
+    const inputElement = document.getElementById("serieInput");
+    if (!inputElement) return;
 
-        const serie = inputElement.value.trim().toUpperCase();
-        const resultadoDiv = document.getElementById("resultado");
+    const serie = inputElement.value.trim().toUpperCase();
+    const resultadoDiv = document.getElementById("resultado");
 
-        if (!serie) {
-            resultadoDiv.innerHTML = "⚠️ Ingresa una serie para continuar.";
-            return;
-        }
-
-        if (municipiosDict.hasOwnProperty(serie)) {
-            const { municipio, candidatos } = municipiosDict[serie];
-
-            // Crear un bloque con las imágenes y nombres de los candidatos
-            let candidatoFotos = candidatos.split(", ").map(candidato => {
-                const nombreReal = candidato.split(" (")[0]; // Parte antes de la lista
-
-                const candidatoNombre = nombreReal
-                    .normalize("NFD")                     // separa letras de tildes
-                    .replace(/[\u0300-\u036f]/g, "")     // elimina tildes
-                    .toLowerCase()
-                    .replace(/[^a-z0-9]/g, "");          // elimina cualquier caracter especial y espacios
-
-                const candidatoFoto = `candidatos/montevideo/${candidatoNombre}.png`;
-
-                return `
-                    <div style="display: inline-block; margin: 10px;">
-                        <img src="${candidatoFoto}" alt="${nombreReal}" style="width: 100px; height: 100px; border-radius: 50%; border: 4px solid red;">
-                        <p>${candidato}</p>
-                    </div>
-                `;
-            }).join("");
-
-            resultadoDiv.innerHTML = `
-    Votás en el <span>${municipio}</span><br>
-    Las candidaturas del Frente Amplio en tu municipio son las siguientes:<br>
-    ${candidatoFotos}
-`;
-        } else if (otrosDepartamentosDict.hasOwnProperty(serie)) {
-            const { municipio, departamento, municipio_letra } = otrosDepartamentosDict[serie];
-            resultadoDiv.innerHTML = `
-                Votás en el municipio <span>${municipio}</span> (${municipio_letra})<br>
-                Departamento: <span>${departamento}</span>
-            `;
-        } else {
-            resultadoDiv.innerHTML = "❌ Serie no encontrada.";
-        }
+    if (!serie) {
+        resultadoDiv.innerHTML = "⚠️ Ingresa una serie para continuar.";
+        return;
     }
 
-    function toggleHelp() {
-        const helpMessage = document.getElementById("helpMessage");
-        helpMessage.style.display = helpMessage.style.display === "block" ? "none" : "block";
+    if (municipiosDict.hasOwnProperty(serie)) {
+        const { municipio, candidatos } = municipiosDict[serie];
+        resultadoDiv.innerHTML = `
+            Votás en el <span>${municipio}</span><br>
+            Candidatos:<br>
+            ${candidatos.split(", ").map(c => `- ${c}`).join("<br>")}
+        `;
+    } else if (otrosDepartamentosDict.hasOwnProperty(serie)) {
+        const { municipio, departamento, municipio_letra } = otrosDepartamentosDict[serie];
+        resultadoDiv.innerHTML = `
+            Votás en el municipio <span>${municipio}</span> (${municipio_letra})<br>
+            Departamento: <span>${departamento}</span>
+        `;
+    } else {
+        resultadoDiv.innerHTML = "❌ Serie no encontrada.";
     }
+}
 
-    document.getElementById("serieInput").addEventListener("keydown", function(event) {
-        if (event.key === 'Enter') buscarMunicipio();
-    });
+        function toggleHelp() {
+            const helpMessage = document.getElementById("helpMessage");
+            helpMessage.style.display = helpMessage.style.display === "block" ? "none" : "block";
+        }
 
-</script>
+        document.getElementById("serieInput").addEventListener("keydown", function(event) {
+            if (event.key === 'Enter') buscarMunicipio();
+        });
+    </script>
 
 </body>
 </html>

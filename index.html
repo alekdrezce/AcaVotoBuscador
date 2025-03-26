@@ -114,6 +114,18 @@
     <div class="help-message" id="helpMessage">
         <p>Busca en tu Credencial Cívica el código de tres letras como en la imagen:</p>
         <img src="ejemplo.png" alt="Ejemplo de serie en la credencial cívica">
+
+        <p style="color: #ffffff; font-family: 'Montserrat', sans-serif; font-size: 16px; margin-top: 20px;">
+            Si no sabés cuál es tu <strong>serie</strong>, podés buscarla fácilmente en el padrón oficial de la Corte Electoral.
+        </p>
+        <p style="color: #ffffff; font-family: 'Montserrat', sans-serif; font-size: 16px;">
+            Hacé clic en el botón a continuación y completá tu <strong>nombre completo</strong>, <strong>número de credencial</strong> y <strong>fecha de nacimiento</strong>. El sistema te mostrará tu serie y número.
+        </p>
+        <a href="http://aplicaciones.corteelectoral.gub.uy/buscadorpermanente/buscadores.buscadorpermanente.aspx" target="_blank" 
+           style="display: inline-block; background-color: #ffc300; color: #000000; padding: 12px 20px; border-radius: 5px; font-weight: bold; text-decoration: none; font-family: 'Montserrat', sans-serif; margin-top: 10px;">
+           Ir al sitio oficial de la Corte Electoral
+        </a>
+
     </div>
 
     <script>
@@ -576,9 +588,15 @@
     }
 
     function toggleHelp() {
-        const helpMessage = document.getElementById("helpMessage");
-        helpMessage.style.display = helpMessage.style.display === "block" ? "none" : "block";
+    const helpMessage = document.getElementById("helpMessage");
+
+    if (helpMessage.style.display === "block") {
+        helpMessage.style.display = "none";
+    } else {
+        helpMessage.style.display = "block";
+        helpMessage.scrollIntoView({ behavior: "smooth" });
     }
+}
 
     document.getElementById("serieInput").addEventListener("keydown", function(event) {
         if (event.key === 'Enter') buscarMunicipio();

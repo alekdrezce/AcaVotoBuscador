@@ -549,28 +549,6 @@
         }
 
         if (municipiosDict.hasOwnProperty(serie)) {
-
-// Diccionario de cuentas de Instagram
-const instagramHandles = {
-    "Álvaro Pereyra": "alvaromanco4",
-    "Juan Carlos Plachot": "juancarlos.plachot",
-    "Florencia Chipolini": "flordemunicipio",
-    "Patricia Soria": "patriciasoria_",
-    "Chabela Zarrillo": "chabelaconelbarrio",
-    "Jorge Cabrera": "jorgecabrera.alcalde",
-    "Gabriela López": "gabrielalopezalcaldesa",
-    "Damián Salvetto": "damian_salvetto",
-    "Mónica Caffa": "monicaffach",
-    "José Machado": "josema96d",
-    "Gabriel Velazco": "gabriel_velazco_alcalde",
-    "Pilar Olascoaga": "pilaralcaldesa.e",
-    "Victor Fomichov": "victor.fomichov",
-    "Pedro Pastorin": "pedropastorin",
-    "Francisco Amorena": "amorenafrancisco",
-    "Matilde Palermo": "matildepalermoalcaldesa",
-    "Leticia de Torres": "letidetorres"
-};
-
             const { municipio, candidatos } = municipiosDict[serie];
 
             // Crear un bloque con las imágenes y nombres de los candidatos
@@ -585,25 +563,12 @@ const instagramHandles = {
 
                 const candidatoFoto = `candidatos/montevideo/${candidatoNombre}.png`;
 
-                let instagramHTML = "";
-if (instagramHandles[nombreReal]) {
-    instagramHTML = `
-        <div style="display: flex; align-items: center; justify-content: center; margin-top: 5px;">
-            <img src="instagram.png" alt="Instagram" style="width: 16px; height: 16px; position: relative; top: -16px; left: -4px;">
-            <a href="https://www.instagram.com/${instagramHandles[nombreReal]}" target="_blank"
-               style="color: #ffc300; text-decoration: none; font-size: 14px; font-family: 'Montserrat', sans-serif;">
-                ${instagramHandles[nombreReal]}
-            </a>
-        </div>`;
-}
-
-return `
-    <div style="display: inline-block; margin: 10px;">
-        <img src="${candidatoFoto}" alt="${nombreReal}" style="width: 100px; height: 100px; border-radius: 50%; border: 4px solid red;">
-        <p>${candidato}</p>
-        ${instagramHTML}
-    </div>
-`;
+                return `
+                    <div style="display: inline-block; margin: 10px;">
+                        <img src="${candidatoFoto}" alt="${nombreReal}" style="width: 100px; height: 100px; border-radius: 50%; border: 4px solid red;">
+                        <p>${candidato}</p>
+                    </div>
+                `;
             }).join("");
 
             resultadoDiv.innerHTML = `

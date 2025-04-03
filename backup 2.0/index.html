@@ -553,7 +553,18 @@
 
             // Crear un bloque con las imágenes y nombres de los candidatos
             let candidatoFotos = candidatos.split(", ").map(candidato => {
-                const nombreReal = candidato.split(" (")[0]; // Parte antes de la lista
+                const nombreReal = candidato.split(" (")[0];
+const nombreNormalizado = nombreReal.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+
+if (instagramHandles[nombreNormalizado]) {
+    instagramHTML = `
+        <p style="font-size: 14px; display: flex; align-items: center; justify-content: center; gap: 5px;">
+            <img src="instagram.png" alt="Instagram" style="width: 16px; height: 16px; transform: translate(-4px, -16px);">
+            <a href="https://www.instagram.com/${instagramHandles[nombreNormalizado]}" target="_blank" style="color: #ffc300; text-decoration: none;">
+                ${instagramHandles[nombreNormalizado]}
+            </a>
+        </p>`;
+}
 
                 const candidatoNombre = nombreReal
                     .normalize("NFD")                     // separa letras de tildes

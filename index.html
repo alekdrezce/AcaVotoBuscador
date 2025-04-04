@@ -552,16 +552,16 @@
 
 // Diccionario de cuentas de Instagram
 const instagramHandles = {
-    "Álvaro Pereyra": "alvaromanco4",
-    "Juan Carlos Plachot": "juancarlos.plachot",
+    "Alvaro Pereyra": "alvaromanco4",
+    "Juan Carlos Plachot": "juanplachot",
     "Florencia Chipolini": "flordemunicipio",
     "Patricia Soria": "patriciasoria_",
     "Chabela Zarrillo": "chabelaconelbarrio",
     "Jorge Cabrera": "jorgecabrera.alcalde",
-    "Gabriela López": "gabrielalopezalcaldesa",
-    "Damián Salvetto": "damian_salvetto",
-    "Mónica Caffa": "monicaffach",
-    "José Machado": "josema96d",
+    "Gabriela Lopez": "gabrielalopezalcaldesa",
+    "Damian Salvetto": "damian_salvetto",
+    "Monica Caffa": "monicaffach",
+    "Jose Machado": "josema96d",
     "Gabriel Velazco": "gabriel_velazco_alcalde",
     "Pilar Olascoaga": "pilaralcaldesa.e",
     "Victor Fomichov": "victor.fomichov",
@@ -586,13 +586,17 @@ const instagramHandles = {
                 const candidatoFoto = `candidatos/montevideo/${candidatoNombre}.png`;
 
                 let instagramHTML = "";
-if (instagramHandles[nombreReal]) {
+const nombreNormalizado = nombreReal
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, ""); // elimina tildes
+
+if (instagramHandles[nombreNormalizado]) {
     instagramHTML = `
         <div style="display: flex; align-items: center; justify-content: center; margin-top: 5px;">
             <img src="instagram.png" alt="Instagram" style="width: 16px; height: 16px; position: relative; top: -16px; left: -4px;">
-            <a href="https://www.instagram.com/${instagramHandles[nombreReal]}" target="_blank"
+            <a href="https://www.instagram.com/${instagramHandles[nombreNormalizado]}" target="_blank"
                style="color: #ffc300; text-decoration: none; font-size: 14px; font-family: 'Montserrat', sans-serif;">
-                ${instagramHandles[nombreReal]}
+                ${instagramHandles[nombreNormalizado]}
             </a>
         </div>`;
 }

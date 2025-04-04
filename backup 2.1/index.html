@@ -122,9 +122,9 @@
             Hacé clic en el botón a continuación y completá tu <strong>nombre completo</strong>, y <strong>fecha de nacimiento</strong>. El sistema te mostrará tu serie y número.
         </p>
         <a href="http://aplicaciones.corteelectoral.gub.uy/buscadorpermanente/buscadores.buscadorpermanente.aspx" target="_blank" 
-           style="display: inline-block; background-color: #ffc300; color: #000000; padding: 12px 20px; border-radius: 5px; font-weight: bold; text-decoration: none; font-family: 'Montserrat', sans-serif; margin-top: 10px;">
-           Ir al sitio oficial de la Corte Electoral
-        </a>
+   style="display: inline-block; background-color: #ffc300; color: #000000; padding: 12px 20px; border-radius: 5px; font-weight: bold; text-decoration: none; font-family: 'Montserrat', sans-serif; margin-top: 10px; margin-bottom: 30px;">
+   Ir al sitio oficial de la Corte Electoral
+</a>
 
     </div>
 
@@ -553,7 +553,7 @@
 // Diccionario de cuentas de Instagram
 const instagramHandles = {
     "Álvaro Pereyra": "alvaromanco4",
-    "Juan Carlos Plachot": "juancarlos.plachot",
+    "Juan Carlos Plachot": "juanplachot",
     "Florencia Chipolini": "flordemunicipio",
     "Patricia Soria": "patriciasoria_",
     "Chabela Zarrillo": "chabelaconelbarrio",
@@ -564,7 +564,7 @@ const instagramHandles = {
     "José Machado": "josema96d",
     "Gabriel Velazco": "gabriel_velazco_alcalde",
     "Pilar Olascoaga": "pilaralcaldesa.e",
-    "Victor Fomichov": "victor.fomichov",
+    "Víctor Fomichov": "victor.fomichov",
     "Pedro Pastorin": "pedropastorin",
     "Francisco Amorena": "amorenafrancisco",
     "Matilde Palermo": "matildepalermoalcaldesa",
@@ -610,12 +610,6 @@ return `
     Votás en el <span>${municipio}</span><br>
     Las candidaturas del Frente Amplio en tu municipio son las siguientes:<br>
     ${candidatoFotos}
-    <div id="desplegablePlataforma" style="margin-top: 20px;">
-        <p onclick="cargarPlataforma('${municipio.split(' ')[1]}')" style="color: #ffc300; text-decoration: underline; cursor: pointer;">
-            ¿Qué propone el Frente Amplio para el Municipio ${municipio.split(' ')[1]}?
-        </p>
-        <div id="plataformaMunicipal" style="margin-top: 20px;"></div>
-    </div>
 `;
         } else if (otrosDepartamentosDict.hasOwnProperty(serie)) {
             const { municipio, departamento, municipio_letra } = otrosDepartamentosDict[serie];
@@ -642,23 +636,6 @@ return `
     document.getElementById("serieInput").addEventListener("keydown", function(event) {
         if (event.key === 'Enter') buscarMunicipio();
     });
-
-    function cargarPlataforma(letraMunicipio) {
-    const contenedor = document.getElementById("plataformaMunicipal");
-    const rutaArchivo = `plataformas/montevideo/${letraMunicipio}.html`;
-
-    fetch(rutaArchivo)
-        .then(response => {
-            if (!response.ok) throw new Error("No se pudo cargar la plataforma.");
-            return response.text();
-        })
-        .then(data => {
-            contenedor.innerHTML = data;
-        })
-        .catch(error => {
-            contenedor.innerHTML = `<p style="color: #ffc300;">No se pudo cargar la plataforma del municipio.</p>`;
-        });
-}
 
 </script>
 

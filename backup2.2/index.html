@@ -104,8 +104,7 @@
     <p class="instructivo">Ingresá tu serie de Credencial Cívica para conocer tu municipio y sus candidaturas</p>
 
     <div class="input-container">
-        <input type="text" id="serieInput" placeholder="Serie (3 letras)" aria-label="Serie de Credencial Cívica" style="text-transform: uppercase;">
-<input type="text" id="numeroInput" placeholder="Número (hasta 6 dígitos)" aria-label="Número de Credencial Cívica">
+        <input type="text" id="serieInput" placeholder="introducí tu serie" aria-label="Serie de Credencial Cívica" style="text-transform: uppercase;">
         <button onclick="buscarMunicipio()">BUSCAR</button>
     </div>
 
@@ -538,129 +537,117 @@
         };
 
         function buscarMunicipio() {
-    const serie = document.getElementById("serieInput").value.trim().toUpperCase();
-    const numero = document.getElementById("numeroInput")?.value.trim();
-    const resultadoDiv = document.getElementById("resultado");
+        const inputElement = document.getElementById("serieInput");
+        if (!inputElement) return;
 
-    if (!serie) {
-        resultadoDiv.innerHTML = "⚠️ Ingresá una serie para continuar.";
-        return;
-    }
+        const serie = inputElement.value.trim().toUpperCase();
+        const resultadoDiv = document.getElementById("resultado");
 
-    const instagramHandles = {
-        "Álvaro Pereyra": "alvaromanco4",
-        "Juan Carlos Plachot": "juancarlos.plachot",
-        "Florencia Chipolini": "flordemunicipio",
-        "Patricia Soria": "patriciasoria_",
-        "Chabela Zarrillo": "chabelaconelbarrio",
-        "Jorge Cabrera": "jorgecabrera.alcalde",
-        "Gabriela López": "gabrielalopezalcaldesa",
-        "Damián Salvetto": "damian_salvetto",
-        "Mónica Caffa": "monicaffach",
-        "José Machado": "josema96d",
-        "Gabriel Velazco": "gabriel_velazco_alcalde",
-        "Pilar Olascoaga": "pilaralcaldesa.e",
-        "Victor Fomichov": "victor.fomichov",
-        "Pedro Pastorin": "pedropastorin",
-        "Francisco Amorena": "amorenafrancisco",
-        "Matilde Palermo": "matildepalermoalcaldesa",
-        "Leticia de Torres": "letidetorres"
-    };
-
-    // MUNICIPIOS DE MONTEVIDEO
-    if (municipiosDict.hasOwnProperty(serie)) {
-        const { municipio, candidatos } = municipiosDict[serie];
-
-        let candidatoFotos = candidatos.split(", ").map(candidato => {
-            const nombreReal = candidato.split(" (")[0];
-            const candidatoNombre = nombreReal
-                .normalize("NFD")
-                .replace(/[\u0300-\u036f]/g, "")
-                .toLowerCase()
-                .replace(/[^a-z0-9]/g, "");
-
-            const candidatoFoto = `candidatos/montevideo/${candidatoNombre}.png`;
-
-            let instagramHTML = "";
-            if (instagramHandles[nombreReal]) {
-                instagramHTML = `
-                    <div style="display: flex; align-items: center; justify-content: center; margin-top: 5px;">
-                        <img src="instagram.png" alt="Instagram" style="width: 16px; height: 16px; position: relative; top: -16px; left: -4px;">
-                        <a href="https://www.instagram.com/${instagramHandles[nombreReal]}" target="_blank"
-                           style="color: #ffc300; text-decoration: none; font-size: 14px; font-family: 'Montserrat', sans-serif;">
-                            ${instagramHandles[nombreReal]}
-                        </a>
-                    </div>`;
-            }
-
-            return `
-                <div style="display: inline-block; margin: 10px;">
-                    <img src="${candidatoFoto}" alt="${nombreReal}" style="width: 100px; height: 100px; border-radius: 50%; border: 4px solid red;">
-                    <p>${candidato}</p>
-                    ${instagramHTML}
-                </div>`;
-        }).join("");
-
-        let resultadoHTML = `
-            Votás en el <span>${municipio}</span><br>
-            Las candidaturas del Frente Amplio en tu municipio son las siguientes:<br>
-            ${candidatoFotos}
-            <div id="desplegablePlataforma" style="margin-top: 20px;">
-                <p onclick="cargarPlataforma('${municipio.split(' ')[1]}')" style="color: #ffc300; text-decoration: underline; cursor: pointer;">
-                    ¿Qué propone el Frente Amplio para el Municipio ${municipio.split(' ')[1]}?
-                </p>
-                <div id="plataformaMunicipal" style="margin-top: 20px;"></div>
-            </div>
-        `;
-
-        if (numero) {
-            const numInt = parseInt(numero, 10);
-            if (!isNaN(numInt) && Array.isArray(circuitosData)) {
-    const coincidencia = circuitosData.find(item =>
-        item.serie === serie && numInt >= item.desde && numInt <= item.hasta
-    );
-    if (coincidencia) {
-        resultadoHTML = `
-            <div style="margin-top: 20px; text-align: left; max-width: 500px; margin-left: auto; margin-right: auto;">
-        <p><span style="color:#ffc300;">Local de votación:</span> ${coincidencia.local}</p>
-        <p><span style="color:#ffc300;">Circuito:</span> ${coincidencia.circuito}</p>
-    </div>
-        ` + resultadoHTML;
-    } else {
-        resultadoHTML = `<p style="margin-top:20px; color: #ffc300;">No se encontró el número dentro del rango de circuitos.</p>` + resultadoHTML;
-    }
-}
+        if (!serie) {
+            resultadoDiv.innerHTML = "⚠️ Ingresa una serie para continuar.";
+            return;
         }
 
-        resultadoDiv.innerHTML = resultadoHTML;
+        if (municipiosDict.hasOwnProperty(serie)) {
 
-    } else if (otrosDepartamentosDict.hasOwnProperty(serie)) {
-        const { municipio, departamento, municipio_letra } = otrosDepartamentosDict[serie];
-        resultadoDiv.innerHTML = `
-            Votás en el municipio <span>${municipio}</span> (${municipio_letra})<br>
-            Departamento: <span>${departamento}</span>
-        `;
-    } else {
-        resultadoDiv.innerHTML = "❌ Serie no encontrada.";
-    }
+// Diccionario de cuentas de Instagram
+const instagramHandles = {
+    "Alvaro Pereyra": "alvaromanco4",
+    "Juan Carlos Plachot": "juanplachot",
+    "Florencia Chipolini": "flordemunicipio",
+    "Patricia Soria": "patriciasoria_",
+    "Chabela Zarrillo": "chabelaconelbarrio",
+    "Jorge Cabrera": "jorgecabrera.alcalde",
+    "Gabriela Lopez": "gabrielalopezalcaldesa",
+    "Damian Salvetto": "damian_salvetto",
+    "Monica Caffa": "monicaffach",
+    "Jose Machado": "josema96d",
+    "Gabriel Velazco": "gabriel_velazco_alcalde",
+    "Pilar Olascoaga": "pilaralcaldesa.e",
+    "Victor Fomichov": "victor.fomichov",
+    "Pedro Pastorin": "pedropastorin",
+    "Francisco Amorena": "amorenafrancisco",
+    "Matilde Palermo": "matildepalermoalcaldesa",
+    "Leticia de Torres": "letidetorres"
+};
+
+            const { municipio, candidatos } = municipiosDict[serie];
+
+            // Crear un bloque con las imágenes y nombres de los candidatos
+            let candidatoFotos = candidatos.split(", ").map(candidato => {
+                const nombreReal = candidato.split(" (")[0]; // Parte antes de la lista
+
+                const candidatoNombre = nombreReal
+                    .normalize("NFD")                     // separa letras de tildes
+                    .replace(/[\u0300-\u036f]/g, "")     // elimina tildes
+                    .toLowerCase()
+                    .replace(/[^a-z0-9]/g, "");          // elimina cualquier caracter especial y espacios
+
+                const candidatoFoto = `candidatos/montevideo/${candidatoNombre}.png`;
+
+                let instagramHTML = "";
+const nombreNormalizado = nombreReal
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, ""); // elimina tildes
+
+if (instagramHandles[nombreNormalizado]) {
+    instagramHTML = `
+        <div style="display: flex; align-items: center; justify-content: center; margin-top: 5px;">
+            <img src="instagram.png" alt="Instagram" style="width: 16px; height: 16px; position: relative; top: -16px; left: -4px;">
+            <a href="https://www.instagram.com/${instagramHandles[nombreNormalizado]}" target="_blank"
+               style="color: #ffc300; text-decoration: none; font-size: 14px; font-family: 'Montserrat', sans-serif;">
+                ${instagramHandles[nombreNormalizado]}
+            </a>
+        </div>`;
 }
 
-function toggleHelp() {
+return `
+    <div style="display: inline-block; margin: 10px;">
+        <img src="${candidatoFoto}" alt="${nombreReal}" style="width: 100px; height: 100px; border-radius: 50%; border: 4px solid red;">
+        <p>${candidato}</p>
+        ${instagramHTML}
+    </div>
+`;
+            }).join("");
+
+            resultadoDiv.innerHTML = `
+    Votás en el <span>${municipio}</span><br>
+    Las candidaturas del Frente Amplio en tu municipio son las siguientes:<br>
+    ${candidatoFotos}
+    <div id="desplegablePlataforma" style="margin-top: 20px;">
+        <p onclick="cargarPlataforma('${municipio.split(' ')[1]}')" style="color: #ffc300; text-decoration: underline; cursor: pointer;">
+            ¿Qué propone el Frente Amplio para el Municipio ${municipio.split(' ')[1]}?
+        </p>
+        <div id="plataformaMunicipal" style="margin-top: 20px;"></div>
+    </div>
+`;
+        } else if (otrosDepartamentosDict.hasOwnProperty(serie)) {
+            const { municipio, departamento, municipio_letra } = otrosDepartamentosDict[serie];
+            resultadoDiv.innerHTML = `
+                Votás en el municipio <span>${municipio}</span> (${municipio_letra})<br>
+                Departamento: <span>${departamento}</span>
+            `;
+        } else {
+            resultadoDiv.innerHTML = "❌ Serie no encontrada.";
+        }
+    }
+
+    function toggleHelp() {
     const helpMessage = document.getElementById("helpMessage");
-    helpMessage.style.display = helpMessage.style.display === "block" ? "none" : "block";
+
     if (helpMessage.style.display === "block") {
+        helpMessage.style.display = "none";
+    } else {
+        helpMessage.style.display = "block";
         helpMessage.scrollIntoView({ behavior: "smooth" });
     }
 }
 
-document.getElementById("serieInput").addEventListener("keydown", function(event) {
-    if (event.key === 'Enter') buscarMunicipio();
-});
-document.getElementById("numeroInput").addEventListener("keydown", function(event) {
-    if (event.key === 'Enter') buscarMunicipio();
-});
+    document.getElementById("serieInput").addEventListener("keydown", function(event) {
+        if (event.key === 'Enter') buscarMunicipio();
+    });
 
-function cargarPlataforma(letraMunicipio) {
+    function cargarPlataforma(letraMunicipio) {
     const contenedor = document.getElementById("plataformaMunicipal");
     const rutaArchivo = `plataformas/montevideo/${letraMunicipio}.html`;
 
@@ -672,12 +659,12 @@ function cargarPlataforma(letraMunicipio) {
         .then(data => {
             contenedor.innerHTML = data;
         })
-        .catch(() => {
+        .catch(error => {
             contenedor.innerHTML = `<p style="color: #ffc300;">No se pudo cargar la plataforma del municipio.</p>`;
         });
 }
+
 </script>
 
-<script src="circuitos.js"></script>
 </body>
 </html>

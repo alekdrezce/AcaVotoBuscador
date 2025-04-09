@@ -567,9 +567,7 @@
         "Leticia de Torres": "letidetorres"
     };
 
-    let resultadoHTML = "";
-
-    // MONTEVIDEO
+    // MUNICIPIOS DE MONTEVIDEO
     if (municipiosDict.hasOwnProperty(serie)) {
         const { municipio, candidatos } = municipiosDict[serie];
 
@@ -603,7 +601,7 @@
                 </div>`;
         }).join("");
 
-        resultadoHTML = `
+        let resultadoHTML = `
             Votás en el <span>${municipio}</span><br>
             Las candidaturas del Frente Amplio en tu municipio son las siguientes:<br>
             ${candidatoFotos}
@@ -615,71 +613,36 @@
             </div>
         `;
 
+        if (numero) {
+            const numInt = parseInt(numero, 10);
+            if (!isNaN(numInt) && Array.isArray(circuitosData)) {
+    const coincidencia = circuitosData.find(item =>
+        item.serie === serie && numInt >= item.desde && numInt <= item.hasta
+    );
+    if (coincidencia) {
+        resultadoHTML = `
+            <div style="margin-top: 20px; text-align: left; max-width: 500px; margin-left: auto; margin-right: auto;">
+        <p><span style="color:#ffc300;">Local de votación:</span> ${coincidencia.local}</p>
+        <p><span style="color:#ffc300;">Circuito:</span> ${coincidencia.circuito}</p>
+    </div>
+        ` + resultadoHTML;
+    } else {
+        resultadoHTML = `<p style="margin-top:20px; color: #ffc300;">No se encontró el número dentro del rango de circuitos.</p>` + resultadoHTML;
+    }
+}
+        }
+
+        resultadoDiv.innerHTML = resultadoHTML;
+
     } else if (otrosDepartamentosDict.hasOwnProperty(serie)) {
         const { municipio, departamento, municipio_letra } = otrosDepartamentosDict[serie];
-        resultadoHTML = `
+        resultadoDiv.innerHTML = `
             Votás en el municipio <span>${municipio}</span> (${municipio_letra})<br>
             Departamento: <span>${departamento}</span>
         `;
-
-    } else if (Array.isArray(circuitosData)) {
-        const registros = circuitosData.filter(item => item.serie === serie);
-
-        if (registros.length > 0) {
-    const primeraLetra = serie.charAt(0).toUpperCase();
-    const mapaDepartamentos = {
-        'A': 'Montevideo',
-        'B': 'Montevideo',
-        'C': 'Canelones',
-        'I': 'Artigas',
-        'G': 'Cerro Largo',
-        'N': 'Colonia',
-        'R': 'Durazno',
-        'P': 'Flores',
-        'Q': 'Florida',
-        'S': 'Lavalleja',
-        'D': 'Maldonado',
-        'K': 'Paysandú',
-        'L': 'Río Negro',
-        'H': 'Rivera',
-        'E': 'Rocha',
-        'J': 'Salto',
-        'O': 'San José',
-        'M': 'Soriano',
-        'T': 'Tacuarembó',
-        'F': 'Treinta y Tres'
-    };
-    const departamentoInferido = mapaDepartamentos[primeraLetra] || "Desconocido";
-
-    resultadoHTML = `
-        <p>Esta credencial no vota en la elección municipal.</p>
-        <p>Pertenece al departamento de <span>${departamentoInferido}</span> y vota solamente a nivel departamental.</p>
-    `;
-} else {
-            resultadoHTML = "❌ Serie no encontrada.";
-        }
-
     } else {
-        resultadoHTML = "❌ Serie no encontrada.";
+        resultadoDiv.innerHTML = "❌ Serie no encontrada.";
     }
-
-    // Si se ingresó número y hay coincidencia con circuitos
-    if (numero && Array.isArray(circuitosData)) {
-        const numInt = parseInt(numero, 10);
-        const coincidencia = circuitosData.find(item =>
-            item.serie === serie && numInt >= item.desde && numInt <= item.hasta
-        );
-        if (coincidencia) {
-            resultadoHTML = `
-                <div style="margin-top: 20px; text-align: left; max-width: 500px; margin-left: auto; margin-right: auto;">
-                    <p><span style="color:#ffc300;">Local de votación:</span> ${coincidencia.local}</p>
-                    <p><span style="color:#ffc300;">Circuito:</span> ${coincidencia.circuito}</p>
-                </div>
-            ` + resultadoHTML;
-        }
-    }
-
-    resultadoDiv.innerHTML = resultadoHTML;
 }
 
 function toggleHelp() {

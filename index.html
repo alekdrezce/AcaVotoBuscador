@@ -748,7 +748,7 @@ document.getElementById("numeroInput").addEventListener("keydown", function(even
 
 function cargarPlataforma(letraMunicipio) {
     const contenedor = document.getElementById("plataformaMunicipal");
-    const rutaArchivo = `plataformas/montevideo/${letraMunicipio}.html`;
+    const rutaArchivo = `plataformas/montevideo/${letraMunicipio}.html?v=${Date.now()}`;
 
     fetch(rutaArchivo)
         .then(response => {

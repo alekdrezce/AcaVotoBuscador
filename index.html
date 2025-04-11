@@ -590,24 +590,25 @@
     }
 
     const instagramHandles = {
-        "Álvaro Pereyra": "alvaromanco4",
-        "Juan Carlos Plachot": "juancarlos.plachot",
-        "Florencia Chipolini": "flordemunicipio",
-        "Patricia Soria": "patriciasoria_",
-        "Chabela Zarrillo": "chabelaconelbarrio",
-        "Jorge Cabrera": "jorgecabrera.alcalde",
-        "Gabriela López": "gabrielalopezalcaldesa",
-        "Damián Salvetto": "damian_salvetto",
-        "Mónica Caffa": "monicaffach",
-        "José Machado": "josema96d",
-        "Gabriel Velazco": "gabriel_velazco_alcalde",
-        "Pilar Olascoaga": "pilaralcaldesa.e",
-        "Victor Fomichov": "victor.fomichov",
-        "Pedro Pastorin": "pedropastorin",
-        "Francisco Amorena": "amorenafrancisco",
-        "Matilde Palermo": "matildepalermoalcaldesa",
-        "Leticia de Torres": "letidetorres"
-    };
+    "Álvaro Pereyra": { red: "instagram", usuario: "alvaromanco4" },
+    "Juan Carlos Plachot": { red: "instagram", usuario: "juancarlos.plachot" },
+    "Florencia Chipolini": { red: "instagram", usuario: "flordemunicipio" },
+    "Patricia Soria": { red: "instagram", usuario: "patriciasoria_" },
+    "Chabela Zarrillo": { red: "instagram", usuario: "chabelaconelbarrio" },
+    "Jorge Cabrera": { red: "instagram", usuario: "jorgecabrera.alcalde" },
+    "Gabriela López": { red: "instagram", usuario: "gabrielalopezalcaldesa" },
+    "Damián Salvetto": { red: "instagram", usuario: "damian_salvetto" },
+    "Mónica Caffa": { red: "instagram", usuario: "monicaffach" },
+    "José Machado": { red: "instagram", usuario: "josema96d" },
+    "Gabriel Velazco": { red: "instagram", usuario: "gabriel_velazco_alcalde" },
+    "Pilar Olascoaga": { red: "instagram", usuario: "pilaralcaldesa.e" },
+    "Victor Fomichov": { red: "instagram", usuario: "victor.fomichov" },
+    "Pedro Pastorin": { red: "instagram", usuario: "pedropastorin" },
+    "Francisco Amorena": { red: "instagram", usuario: "amorenafrancisco" },
+    "Matilde Palermo": { red: "instagram", usuario: "matildepalermoalcaldesa" },
+    "Leticia de Torres": { red: "instagram", usuario: "letidetorres" },
+    "Jorge Sartori": { red: "x", usuario: "JSartoriF53" }
+};
 
     let resultadoHTML = "";
 
@@ -626,16 +627,22 @@
             const candidatoFoto = `candidatos/montevideo/${candidatoNombre}.png`;
 
             let instagramHTML = "";
-            if (instagramHandles[nombreReal]) {
-                instagramHTML = `
-                    <div style="display: flex; align-items: center; justify-content: center; margin-top: 5px;">
-                        <img src="instagram.png" alt="Instagram" style="width: 16px; height: 16px; position: relative; top: 0px; left: -4px;">
-                        <a href="https://www.instagram.com/${instagramHandles[nombreReal]}" target="_blank"
-                           style="color: #ffc300; text-decoration: none; font-size: 14px; font-family: 'Montserrat', sans-serif;">
-                            ${instagramHandles[nombreReal]}
-                        </a>
-                    </div>`;
-            }
+            const handle = instagramHandles[nombreReal];
+if (handle) {
+    const icono = handle.red === "x" ? "x.png" : "instagram.png";
+    const url = handle.red === "x"
+        ? `https://x.com/${handle.usuario}`
+        : `https://www.instagram.com/${handle.usuario}`;
+
+    instagramHTML = `
+        <div style="display: flex; align-items: center; justify-content: center; margin-top: 5px;">
+            <img src="${icono}" alt="${handle.red}" style="width: 16px; height: 16px; margin-right: 5px;">
+            <a href="${url}" target="_blank"
+               style="color: #ffc300; text-decoration: none; font-size: 14px; font-family: 'Montserrat', sans-serif;">
+                ${handle.usuario}
+            </a>
+        </div>`;
+}
 
             return `
                 <div style="display: inline-block; margin: 10px;">
